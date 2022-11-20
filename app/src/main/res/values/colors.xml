@@ -7,4 +7,18 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    //hamburguer icon
+    <color name="hamburguerColor">#92d36e</color>
+
+    //toolbar
+    <color name="tolbarBackground">#cfcfcf</color>
+    <color name="tolbarTittle">#35424a</color>
+
+    //menuBar
+    <color name="itemBackground">#d2dae2</color>
+    <color name="itemTittle">#35424a</color>
+
+    //item selected
+    <color name="itemSelected">#dfedd6</color>
 </resources>

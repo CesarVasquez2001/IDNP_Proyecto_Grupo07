@@ -13,4 +13,39 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.IDNPProyectoGrupo07.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/hamburguerColor</item>
+    </style>
+
+
+    <style name="Theme.IDNPProyectoGrupo07.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="drawerArrowStyle">@style/DrawerIcon</item>
+        <item name="android:background">@color/tolbarBackground</item>
+        <item name="android:textColorPrimary">@color/tolbarTittle</item>
+    </style>
+
+    <style name="Theme.IDNPProyectoGrupo07.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark">
+
+    </style>
+
+
+    <style name="Widget.Custom.NavigationView" parent="Widget.Design.NavigationView">
+        <item name="itemIconTint">@color/nav_view_icons_color</item>
+        <item name="itemTextColor">@color/itemTittle</item>
+        <item name="itemBackground">@drawable/nav_view_item_background</item>
+    </style>
+
+    <style name="MainImage" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+    </style>
+
+    <style name="TextAppearance.Custom.Navigation.Item" parent="TextAppearance.AppCompat">
+        <item name="actionLayout">@style/MainImage</item>
+    </style>
 </resources>

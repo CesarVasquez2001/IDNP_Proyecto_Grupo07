@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.idnpproyectogrupo07.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_overview"
+        android:name="com.example.idnpproyectogrupo07.ui.gallery.OverviewFragment"
+        android:label="@string/menu_overview"
+        tools:layout="@layout/fragment_overview" />
+
+    <fragment
+        android:id="@+id/nav_history"
+        android:name="com.example.idnpproyectogrupo07.ui.slideshow.HistoryFragment"
+        android:label="@string/menu_history"
+        tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/nav_scan"
+        android:name="com.example.idnpproyectogrupo07.ui.scan.ScanFragment"
+        android:label="@string/menu_scan"
+        tools:layout="@layout/fragment_scan" />
+
+    <fragment
+        android:id="@+id/nav_education"
+        android:name="com.example.idnpproyectogrupo07.ui.education.EducationFragment"
+        android:label="@string/menu_education"
+        tools:layout="@layout/fragment_education" />
+
+    <fragment
+        android:id="@+id/nav_signout"
+        android:name="com.example.idnpproyectogrupo07.ui.signout.SignoutFragment"
+        android:label="@string/menu_signout"
+        tools:layout="@layout/fragment_signout" />
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.example.idnpproyectogrupo07.ui.settings.SettingFragment"
+        android:label="@string/menu_setting"
+        tools:layout="@layout/fragment_setting" />
+
+</navigation>
