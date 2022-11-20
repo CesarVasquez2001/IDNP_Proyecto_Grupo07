@@ -111,6 +111,7 @@ Menu contextual
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         Menu menu = navigationView.getMenu();
+
         int id=0;
         for (int i=0;i<menu.size();i++){
             MenuItem m=menu.getItem(i);
