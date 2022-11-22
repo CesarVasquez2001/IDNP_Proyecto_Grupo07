@@ -1,4 +1,4 @@
-package com.example.idnpproyectogrupo07.ui.slideshow;
+package com.example.idnpproyectogrupo07.ui.overview;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,24 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.idnpproyectogrupo07.databinding.FragmentHistoryBinding;
+import com.example.idnpproyectogrupo07.databinding.FragmentOverviewBinding;
 
-public class HistoryFragment extends Fragment {
+public class OverviewFragment extends Fragment {
 
-    private FragmentHistoryBinding binding;
+    private FragmentOverviewBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+        OverviewViewModel galleryViewModel =
+                new ViewModelProvider(this).get(OverviewViewModel.class);
 
-        HistoryViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(HistoryViewModel.class);
-
-        binding = FragmentHistoryBinding.inflate(inflater, container, false);
+        binding = FragmentOverviewBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textGallery;
+        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

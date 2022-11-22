@@ -1,16 +1,16 @@
-package com.example.idnpproyectogrupo07.ui.slideshow;
+package com.example.idnpproyectogrupo07.ui.overview;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HistoryViewModel extends ViewModel {
+public class OverviewViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public HistoryViewModel() {
+    public OverviewViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is history fragment");
+        mText.setValue("This is overview fragment");
     }
 
     public LiveData<String> getText() {
