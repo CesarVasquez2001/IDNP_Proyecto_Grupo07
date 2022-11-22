@@ -6,17 +6,98 @@
     android:layout_height="match_parent"
     tools:context=".ui.settings.SettingFragment">
 
-    <TextView
-        android:id="@+id/setting_text"
+    <include
+        android:id="@+id/setting_header"
+        layout="@layout/setting_header" />
+
+
+    <LinearLayout
+        android:id="@+id/setting_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="531dp"
+        android:background="@color/tolbarBackground"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/setting_header">
+
+        <TextView
+            android:id="@+id/text_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Settings"
+            android:text="ACCOUNT" />
+
+        <TextView
+            android:id="@+id/text_edit_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/SettingsText"
+            android:drawableStart="@drawable/ic_baseline_account_circle_24"
+            android:text="Edit profile" />
+        <TextView
+            android:id="@+id/text_change_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/SettingsText"
+            android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+
+            android:text="Change password" />
+
+        <TextView
+            android:id="@+id/text_preference"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Settings"
+            android:text="PREFERENCES" />
+        <TextView
+            android:id="@+id/text_language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/SettingsText"
+            android:drawableStart="@drawable/ic_baseline_language_24"
+            android:text="Language" />
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sound"
+            style="@style/SettingSwitch"
+
+            android:drawableStart="@drawable/ic_baseline_dark_mode_24"
+            android:id="@+id/switch_dark_mode" />
+        <TextView
+            android:id="@+id/text_others"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Settings"
+            android:text="OTHERS" />
+        <TextView
+            android:id="@+id/text_privacy_policy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/SettingsText"
+            android:drawableStart="@drawable/ic_baseline_account_circle_24"
+            android:text="Privacy policy" />
+        <TextView
+            android:id="@+id/text_terms_and_conditions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/SettingsText"
+            android:drawableStart="@drawable/ic_baseline_library_books_24"
+            android:text="Terms and conditions" />
+        <TextView
+            android:id="@+id/text_about_us"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/SettingsText"
+            android:drawableStart="@drawable/ic_baseline_account_circle_24"
+            android:text="About us" />
+        <TextView
+            android:id="@+id/text_help"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/SettingsText"
+            android:drawableStart="@drawable/ic_baseline_error_outline_24"
+            android:text="Help" />
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

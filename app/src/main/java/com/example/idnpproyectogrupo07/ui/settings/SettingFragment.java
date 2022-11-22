@@ -31,9 +31,10 @@ public class SettingFragment extends Fragment {
 
         binding = FragmentSettingBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
+/*
         final TextView textView = binding.settingText;
         slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+*/
         return root;
     }
 
