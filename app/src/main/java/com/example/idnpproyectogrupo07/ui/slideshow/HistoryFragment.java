@@ -55,6 +55,7 @@ public class HistoryFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         MyAdapter myAdapter = new MyAdapter(getContext(), historyItems);
+
         // Todo: Fix this (close Fragment and redirect to main activity)
 //        recyclerView.setAdapter(myAdapter);
 //        myAdapter.notifyDataSetChanged();
