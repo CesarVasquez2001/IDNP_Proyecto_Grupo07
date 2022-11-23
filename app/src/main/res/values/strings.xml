@@ -1,4 +1,11 @@
 <resources>
+    <!-- Dropdown gender -->
+    <string-array name="gender">
+        <item>Female</item>
+        <item>Male</item>
+
+    </string-array>
+
     <string name="app_name">IDNP Proyecto Grupo07</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="nav_header_title">Android Studio</string>
@@ -28,6 +35,7 @@
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>
     <string name="reply_title">Default reply action</string>
+
 
     <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>

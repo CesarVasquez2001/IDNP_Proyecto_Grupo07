@@ -10,31 +10,26 @@
         android:name="com.example.idnpproyectogrupo07.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
-
     <fragment
         android:id="@+id/nav_overview"
         android:name="com.example.idnpproyectogrupo07.ui.overview.OverviewFragment"
         android:label="@string/menu_overview"
         tools:layout="@layout/fragment_overview" />
-
     <fragment
         android:id="@+id/nav_history"
         android:name="com.example.idnpproyectogrupo07.ui.history.HistoryFragment"
         android:label="@string/menu_history"
         tools:layout="@layout/fragment_history" />
-
     <fragment
         android:id="@+id/nav_scan"
         android:name="com.example.idnpproyectogrupo07.ui.scan.ScanFragment"
         android:label="@string/menu_scan"
         tools:layout="@layout/fragment_scan" />
-
     <fragment
         android:id="@+id/nav_education"
         android:name="com.example.idnpproyectogrupo07.ui.education.EducationFragment"
         android:label="@string/menu_education"
         tools:layout="@layout/fragment_education" />
-
     <fragment
         android:id="@+id/nav_signout"
         android:name="com.example.idnpproyectogrupo07.ui.signout.SignoutFragment"

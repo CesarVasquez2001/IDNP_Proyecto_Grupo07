@@ -9,9 +9,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
-
         <LinearLayout
             android:id="@+id/setting_linear_layout"
             android:layout_width="match_parent"
@@ -28,7 +25,6 @@
                 android:layout_height="wrap_content"
                 style="@style/Settings"
                 android:text="ACCOUNT" />
-
             <TextView
                 android:id="@+id/text_edit_profile"
                 android:layout_width="match_parent"
@@ -45,7 +41,6 @@
                 android:drawableStart="@drawable/ic_baseline_vpn_key_24"
 
                 android:text="Change password" />
-
             <TextView
                 android:id="@+id/text_preference"
                 android:layout_width="match_parent"

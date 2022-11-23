@@ -59,6 +59,24 @@
         <item name="android:textColor">@color/textGroup</item>
     </style>
 
+    <style name="SettingsEditProfile" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:textSize">20dp</item>
+        <item name="android:padding">5dp</item>
+
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/hamburguerColor</item>
+    </style>
+    //Style edit text profile
+    <style name="EditTextSettings" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:textSize">20dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+    <style name="buttonFragment" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <item name="backgroundTint">@color/hamburguerColor</item>
+    </style>
+
     //Style setting
     <style name="SettingsText" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:textSize">20dp</item>

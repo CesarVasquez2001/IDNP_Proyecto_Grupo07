@@ -28,7 +28,7 @@ public class SettingFragment extends Fragment {
     private SettingViewModel mViewModel;
     private FragmentSettingBinding binding;
 
-        //logica de inicializacion
+    //logica de inicializacion
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -39,10 +39,6 @@ public class SettingFragment extends Fragment {
         binding = FragmentSettingBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        /*
-        final TextView textView = binding.settingText;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-*/
         return root;
     }
     // logica de creacion de los componentes
@@ -65,20 +61,6 @@ public class SettingFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.text_edit_profile:
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.setReorderingAllowed(true);
-                transaction.replace(R.id.nav_host_fragment_content_main, EditProfileFragment.newInstance());
-                transaction.commit();
-
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     public void onDestroyView() {
