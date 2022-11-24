@@ -1,4 +1,4 @@
-package com.example.idnpproyectogrupo07;
+package com.example.idnpproyectogrupo07.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,14 +10,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.idnpproyectogrupo07.R;
+import com.example.idnpproyectogrupo07.classes.HistoryItemsPrev;
+
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+/* TODO: DELETE*/
+
+public class MyAdapterPrev extends RecyclerView.Adapter<MyAdapterPrev.MyViewHolder> {
 
     Context context;
-    ArrayList<HistoryItems> historyItems;
+    ArrayList<HistoryItemsPrev> historyItems;
 
-    public MyAdapter(Context context, ArrayList<HistoryItems> historyItems) {
+    public MyAdapterPrev(Context context, ArrayList<HistoryItemsPrev> historyItems) {
         this.context = context;
         this.historyItems = historyItems;
     }
@@ -32,7 +37,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        HistoryItems items = historyItems.get(position);
+        HistoryItemsPrev items = historyItems.get(position);
         holder.nameHistoryItem.setText(items.image);
         holder.nameHistoryItem.setText(items.name);
         holder.descriptionHistoryItem.setText(items.description);

@@ -1,11 +1,13 @@
-package com.example.idnpproyectogrupo07;
+package com.example.idnpproyectogrupo07.classes;
 
 public class HistoryItems {
 
-    int image;
-    String name;
-    String description;
-    String status;
+    public int image;
+    public String name;
+    public String description;
+    public String status;
+
+    public HistoryItems() {}
 
     public HistoryItems(int image, String name, String description, String status) {
         this.image = image;
