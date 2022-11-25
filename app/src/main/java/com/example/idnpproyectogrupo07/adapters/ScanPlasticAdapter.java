@@ -34,7 +34,7 @@ public class ScanPlasticAdapter extends RecyclerView.Adapter<ScanPlasticAdapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.fragment_plastic_list, parent, false);
+        View view = inflater.inflate(R.layout.lista_plasticos, parent, false);
         view.setOnClickListener(this); //onclick
 
         return new ViewHolder(view);

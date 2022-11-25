@@ -49,7 +49,7 @@ public class ScanFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        //abrirCamara();
+        abrirCamara();
         return inflater.inflate(R.layout.fragment_scan, container, false);
 
     }
@@ -60,7 +60,7 @@ public class ScanFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.nav_history);
+                Navigation.findNavController(view).navigate(R.id.nav_plastic_list);
             }
         });
     }
@@ -74,7 +74,7 @@ public class ScanFragment extends Fragment {
     }
 
 
-
+    /*
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         //super.onActivityResult(requestCode, resultCode, data);
@@ -85,7 +85,7 @@ public class ScanFragment extends Fragment {
             imageView.setImageBitmap(imgBitmap);
 
         }
-    }
+    }*/
 
 
 }
