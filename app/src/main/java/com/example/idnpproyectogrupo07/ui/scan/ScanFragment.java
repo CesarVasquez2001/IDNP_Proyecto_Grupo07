@@ -53,7 +53,7 @@ public class ScanFragment extends Fragment {
     private void abrirCamara() {
         Intent intent = new Intent(new Intent(MediaStore.ACTION_IMAGE_CAPTURE));
         //if(intent.resolveActivity(getPackageManager()) !=null ){
-        startActivityForResult(intent, 111);
+        startActivityForResult(intent, 1);
         //}
     }
 
