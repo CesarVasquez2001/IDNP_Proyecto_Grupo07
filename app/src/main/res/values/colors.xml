@@ -21,4 +21,11 @@
 
     //item selected
     <color name="itemSelected">#dfedd6</color>
+
+    //header setting
+    <color name="settingHeader">#aedd94</color>
+    <color name="textProfile">#35424a</color>
+    <color name="textEmail">#606060</color>
+    <color name="textGroup">#aaaaaa</color>
+    <color name="textOptions">#444444</color>
 </resources>

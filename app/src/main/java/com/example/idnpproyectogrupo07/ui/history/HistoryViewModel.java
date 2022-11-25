@@ -1,4 +1,4 @@
-package com.example.idnpproyectogrupo07.ui.slideshow;
+package com.example.idnpproyectogrupo07.ui.history;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

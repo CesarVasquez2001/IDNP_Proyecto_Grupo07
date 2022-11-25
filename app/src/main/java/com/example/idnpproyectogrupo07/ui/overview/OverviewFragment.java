@@ -1,4 +1,4 @@
-package com.example.idnpproyectogrupo07.ui.gallery;
+package com.example.idnpproyectogrupo07.ui.overview;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

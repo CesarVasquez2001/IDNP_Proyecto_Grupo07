@@ -15,10 +15,6 @@
             app:showAsAction="always"
             android:title="@string/menu_home"
             app:itemBackground="@color/black"/>
-
-        />
-
-
         <item
             android:id="@+id/nav_overview"
             android:icon="@drawable/ic_baseline_insert_chart_24"
@@ -37,7 +33,6 @@
             android:title="@string/menu_history"
             app:actionLayout="@layout/menu_image"
             />
-
         <item
             android:id="@+id/nav_scan"
             android:icon="@drawable/ic_baseline_camera_alt_24"
@@ -47,7 +42,6 @@
             android:title="@string/menu_scan"
             app:actionLayout="@layout/menu_image"
             />
-
         <item
             android:id="@+id/nav_education"
             android:icon="@drawable/ic_baseline_book_24"
@@ -57,7 +51,6 @@
             android:title="@string/menu_education"
             app:actionLayout="@layout/menu_image"
             />
-
         <item
             android:id="@+id/nav_signout"
             android:icon="@drawable/ic_baseline_logout_24"
@@ -67,10 +60,7 @@
             android:title="@string/menu_signout"
             app:actionLayout="@layout/menu_image"
             />
-
-
     </group>
-
     <group  android:id="@+id/grp2" android:checkableBehavior="single">
         <item
             android:id="@+id/nav_setting"

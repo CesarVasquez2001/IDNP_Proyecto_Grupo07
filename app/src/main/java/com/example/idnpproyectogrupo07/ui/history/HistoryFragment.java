@@ -1,4 +1,4 @@
-package com.example.idnpproyectogrupo07.ui.slideshow;
+package com.example.idnpproyectogrupo07.ui.history;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
