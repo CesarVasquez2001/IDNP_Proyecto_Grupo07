@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity{
     private static final String SELECTED_ITEM = "arg_selected_item";
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    private  NavigationView navigationView;
+    private NavigationView navigationView;
     private DrawerLayout drawer;
 
 
@@ -126,11 +126,11 @@ Menu contextual
                 || super.onSupportNavigateUp();
     }
 
-
+    /*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode,resultCode,data);
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.nav_scan);
         fragment.onActivityResult(requestCode, resultCode, data);
-        }
+        }*/
     }

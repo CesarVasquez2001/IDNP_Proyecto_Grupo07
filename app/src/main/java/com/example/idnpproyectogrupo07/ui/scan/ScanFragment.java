@@ -11,12 +11,15 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,31 +27,44 @@ import android.widget.Toast;
 import com.example.idnpproyectogrupo07.R;
 import com.example.idnpproyectogrupo07.databinding.FragmentScanBinding;
 import com.example.idnpproyectogrupo07.ui.scan.ScanViewModel;
+import com.google.android.material.navigation.NavigationView;
 
 public class ScanFragment extends Fragment {
 
     private static final int CAMERA_REQUEST_CODE = 1999;
     private ScanViewModel mViewModel;
-    private FragmentScanBinding binding;
     ImageView imageView;
+    Button btnplastic;
+    RecyclerView recyclerView;
+    View view;
 
-    public View onCreateView(LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    @NonNull
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        /*ScanViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(ScanViewModel.class);
-        binding = FragmentScanBinding.inflate(inflater, container, false);
-
-        View root = binding.getRoot();
-        //binding.
-
-        //imageView =(ImageView) root.findViewById(R.id.ImageViewScan);
-        //slideshowViewModel.getText().observe(getViewLifecycleOwner(), imageView::setImageResource);
-        //return root;
-        */
-        binding = FragmentScanBinding.inflate(getLayoutInflater());
-        return binding.getRoot();
     }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        abrirCamara();
+        return inflater.inflate(R.layout.fragment_scan, container, false);
+
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Button button= view.findViewById(R.id.btnplastic);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.nav_plastic_list);
+            }
+        });
+    }
+
 
     private void abrirCamara() {
         Intent intent = new Intent(new Intent(MediaStore.ACTION_IMAGE_CAPTURE));
@@ -57,6 +73,8 @@ public class ScanFragment extends Fragment {
         //}
     }
 
+
+    /*
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         //super.onActivityResult(requestCode, resultCode, data);
@@ -67,19 +85,7 @@ public class ScanFragment extends Fragment {
             imageView.setImageBitmap(imgBitmap);
 
         }
-    }
+    }*/
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-            abrirCamara();
-            //binding.ImageViewScan.setImageBitmap(imageView);
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
 
 }

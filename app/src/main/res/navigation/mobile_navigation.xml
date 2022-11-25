@@ -24,7 +24,11 @@
         android:id="@+id/nav_scan"
         android:name="com.example.idnpproyectogrupo07.ui.scan.ScanFragment"
         android:label="@string/menu_scan"
-        tools:layout="@layout/fragment_scan" />
+        tools:layout="@layout/fragment_scan" >
+        <action
+            android:id="@+id/action_nav_scan_to_nav_plastic_list"
+            app:destination="@id/nav_plastic_list" />
+    </fragment>
     <fragment
         android:id="@+id/nav_education"
         android:name="com.example.idnpproyectogrupo07.ui.education.EducationFragment"
@@ -60,6 +64,11 @@
         android:label="@string/menu_setting_change_password"
         tools:layout="@layout/fragment_change_password"
         />
+    <fragment
+        android:id="@+id/nav_plastic_list"
+        android:name="com.example.idnpproyectogrupo07.ui.scan.PlasticListFragment"
+        android:label="fragment_plastic_list"
+        tools:layout="@layout/fragment_plastic_list" />
 
 
 </navigation>
