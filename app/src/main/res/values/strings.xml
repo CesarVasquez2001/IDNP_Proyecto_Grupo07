@@ -5,7 +5,10 @@
         <item>Male</item>
 
     </string-array>
+    <!-- Dropdown gender -->
 
+
+    <!-- Dropdown gender -->
     <string name="app_name">IDNP Proyecto Grupo07</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="nav_header_title">Android Studio</string>
@@ -43,4 +46,20 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+
+
+
+    <!-- Login -->
+    <string name="login_title">Sign up</string>
+
+    <!-- Login -->
+
+
+    <!-- Database -->
+    <string name="db_create">DATABASE CREATED</string>
+    <string name="db_create_error">ERROR WHILE CREATING THE DATABASE</string>
+
+    <!-- Database -->
+
 </resources>

@@ -34,7 +34,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Username" />
+                    android:text="Email" />
 
                 <EditText
                     android:id="@+id/editTextTextPersonName"
@@ -60,22 +60,6 @@
                     android:inputType="textPersonName" />
 
                 <TextView
-                    android:id="@+id/text_country"
-                    style="@style/SettingsEditProfile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Country" />
-
-                <com.hbb20.CountryCodePicker
-                    android:id="@+id/countryCodePicker"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:ccp_defaultLanguage="SPANISH"
-                    app:ccp_defaultNameCode="PE"
-                    style="@style/EditTextSettings"
-                    app:ccp_showPhoneCode="false"></com.hbb20.CountryCodePicker>
-
-                <TextView
                     android:id="@+id/text_gender"
                     style="@style/SettingsEditProfile"
                     android:layout_width="match_parent"
@@ -91,7 +75,7 @@
                     >
 
                     <AutoCompleteTextView
-                        android:id="@+id/text_complete"
+                        android:id="@+id/register_gender_change"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         style="@style/EditTextSettings"

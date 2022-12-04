@@ -19,6 +19,7 @@ import android.widget.EditText;
 import com.example.idnpproyectogrupo07.R;
 import com.example.idnpproyectogrupo07.databinding.FragmentEditProfileBinding;
 import com.example.idnpproyectogrupo07.databinding.FragmentSettingBinding;
+import com.hbb20.CountryCodePicker;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -46,21 +47,18 @@ public class EditProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
+
         String[] gender = getResources().getStringArray(R.array.gender);
         //ArrayList<String> gender = new ArrayList<String>();
-
-
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), R.layout.list_item, gender);
-
         // DateFormat DD-MM-YY
-        binding.textComplete.setAdapter(arrayAdapter);
+        binding.registerGenderChange.setAdapter(arrayAdapter);
+
         EditText date=  binding.editTextDate;
         date.addTextChangedListener(new TextWatcher() {
             private String current = "";
             private String ddmmyyyy = "DDMMYYYY";
             private Calendar cal = Calendar.getInstance();
-
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (!s.toString().equals(current)) {
@@ -105,7 +103,6 @@ public class EditProfileFragment extends Fragment {
                     current = clean;
                     date.setText(current);
                     date.setSelection(sel < current.length() ? sel : current.length());
-
                 }
             }
 
