@@ -27,7 +27,7 @@
         tools:layout="@layout/fragment_scan" >
         <action
             android:id="@+id/action_nav_scan_to_nav_plastic_list"
-            app:destination="@id/nav_plastic_list" />
+            app:destination="@id/plastic_list" />
     </fragment>
     <fragment
         android:id="@+id/nav_education"
@@ -65,10 +65,18 @@
         tools:layout="@layout/fragment_change_password"
         />
     <fragment
-        android:id="@+id/nav_plastic_list"
+        android:id="@+id/plastic_list"
         android:name="com.example.idnpproyectogrupo07.ui.scan.PlasticListFragment"
         android:label="fragment_plastic_list"
-        tools:layout="@layout/fragment_plastic_list" />
+        tools:layout="@layout/fragment_plastic_list" >
+        <action
+            android:id="@+id/action_nav_plastic_list_to_codeListFragment"
+            app:destination="@id/code_list" />
+    </fragment>
+    <fragment
+        android:id="@+id/code_list"
+        android:name="com.example.idnpproyectogrupo07.ui.scan.CodeListFragment"
+        android:label="CodeListFragment" />
 
 
 </navigation>

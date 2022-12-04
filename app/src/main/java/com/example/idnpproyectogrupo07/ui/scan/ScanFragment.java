@@ -60,7 +60,7 @@ public class ScanFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.nav_plastic_list);
+                Navigation.findNavController(view).navigate(R.id.plastic_list);
             }
         });
     }

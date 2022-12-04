@@ -3,6 +3,7 @@ package com.example.idnpproyectogrupo07.ui.scan;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -93,6 +94,7 @@ public class PlasticListFragment extends Fragment {
             public void onClick(View view) {
                 String nombre = listaPlastic.get(recyclerViewItemsPlastic.getChildAdapterPosition(view)).getNombre();
                 Toast.makeText(getContext(), "Selecciono"+nombre, Toast.LENGTH_SHORT).show();
+                Navigation.findNavController(view).navigate(R.id.code_list);
             }
         });
     }
