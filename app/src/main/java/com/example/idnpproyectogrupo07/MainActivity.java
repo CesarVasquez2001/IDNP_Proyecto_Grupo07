@@ -11,8 +11,11 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.idnpproyectogrupo07.database.DBHelper;
+import com.example.idnpproyectogrupo07.database.DBUser;
 import com.example.idnpproyectogrupo07.database.User;
 import com.example.idnpproyectogrupo07.databinding.MenuImageBinding;
 import com.google.android.material.snackbar.Snackbar;
@@ -41,15 +44,20 @@ public class MainActivity extends AppCompatActivity{
     private DrawerLayout drawer;
     private static String TAG = "MainActivity";
 
-
+    private Bundle data;
+    private DBUser dbUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // User
-        User user= (User) getIntent().getSerializableExtra("USER");
+        //User user= (User) bundle.getSerializable("USER");
+        //Log.d(TAG,"USUARIO RECIBIDO"+user);
+        data=getIntent().getExtras();
+        String email =data.getString("EMAIL");
+        String password =data.getString("PASSWORD");
 
-        Log.d(TAG,"USUARIO RECIBIDO"+user);
+
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -69,6 +77,21 @@ public class MainActivity extends AppCompatActivity{
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        // database
+        dbUser = new DBUser(this);
+        dbUser.OpenDb();
+        User user = dbUser.loginUser(email,password);
+
+        View header = binding.navView.getHeaderView(0);
+        ImageView nav_image = (ImageView) header.findViewById(R.id.image_view_header);
+        TextView nav_full_name= (TextView) header.findViewById(R.id.full_name_header);
+        TextView nav_email= (TextView) header.findViewById(R.id.email_header);
+
+        nav_full_name.setText(user.getFullname());
+        nav_email.setText(user.getEmail());
+        nav_image.setImageBitmap(user.getProfile_picture());
+
     }
 
     /*

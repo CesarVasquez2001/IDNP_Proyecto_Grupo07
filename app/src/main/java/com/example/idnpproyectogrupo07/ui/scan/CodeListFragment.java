@@ -65,6 +65,7 @@ public class CodeListFragment extends Fragment {
     aplicator, plastic case, unknown plastic/*
      */
     public void cargarLista(){
+
         listaCodes.add(new ScanCodePlastic("PET Plastic","e.g. Clear bottles, pots, trays and punnets", R.drawable.code1));
         listaCodes.add(new ScanCodePlastic("HDPE Plastic","e.g. Milk jugs, shampoo, chemical and detergent bottles ", R.drawable.code2));
         listaCodes.add(new ScanCodePlastic("PVC Plastic","e.g. Cosmetic containers and household fittings ", R.drawable.code3));
@@ -72,7 +73,6 @@ public class CodeListFragment extends Fragment {
         listaCodes.add(new ScanCodePlastic("PP Plastic","e.g. Single pots, tubs, ready-meal trays and rigid caps ", R.drawable.code5));
         listaCodes.add(new ScanCodePlastic("PS Plastic","e.g. Multipack yogurt snap pots and video games cases ", R.drawable.code6));
         listaCodes.add(new ScanCodePlastic("Other Plastic","e.g. Nets, PLA, clear CD cases and acrylic ", R.drawable.code7));
-
     }
 
     public void mostrarLista(){

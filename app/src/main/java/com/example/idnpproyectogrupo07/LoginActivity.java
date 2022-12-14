@@ -73,7 +73,10 @@ public class LoginActivity extends AppCompatActivity {
                     if (checkemailpass==true){
                         Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        intent.putExtra("USER",user);
+
+                        intent.putExtra("EMAIL",user.getEmail());
+                        intent.putExtra("PASSWORD",user.getPassword());
+
                         startActivity(intent);
                     }else{
                         Toast.makeText(getApplicationContext(), "Login Failed", Toast.LENGTH_SHORT).show();

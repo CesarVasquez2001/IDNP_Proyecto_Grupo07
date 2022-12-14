@@ -81,7 +81,6 @@ public class PlasticListFragment extends Fragment {
         listaPlastic.add(new ScanItemsPlastic("Caja de Plastico","e.g. videojuegos, DVD, etc ", R.drawable.game));
         listaPlastic.add(new ScanItemsPlastic("Plastico Desconocido","e.g. Si no conoces el plastico pero puedes dar mas detalles del mismo, etc ", R.drawable.unknown));
 
-
     }
 
     public void mostrarLista(){

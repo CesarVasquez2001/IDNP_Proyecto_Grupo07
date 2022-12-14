@@ -44,6 +44,7 @@ public class ScanFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
     }
+    // plastico  //x //id-user foto codigo cateogria
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,8 +73,6 @@ public class ScanFragment extends Fragment {
         startActivityForResult(intent, 1);
         //}
     }
-
-
     /*
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

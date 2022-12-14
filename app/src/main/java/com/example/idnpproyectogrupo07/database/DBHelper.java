@@ -7,9 +7,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-public class DBHelper extends SQLiteOpenHelper {
+import java.io.Serializable;
 
-    private static final int DATABASE_VERSION = 1;
+public class DBHelper extends SQLiteOpenHelper implements Serializable {
+
+    private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "smart_city.db";
     private static final String TABLE_USER = "t_user";
 
@@ -25,13 +27,14 @@ public class DBHelper extends SQLiteOpenHelper {
             "email TEXT NOT NULL," +
             "password TEXT NOT NULL," +
             "gender TEXT NOT NULL," +
-            "date_of_birth TEXT NOT NULL)");
+            "date_of_birth TEXT NOT NULL," +
+            "profile_picture BLOB NOT NULL)");
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE " + TABLE_USER);
-        //onCreater(sqliteDatabase)
+        onCreate(sqLiteDatabase);
     }
-
 }

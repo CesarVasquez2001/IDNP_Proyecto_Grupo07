@@ -18,6 +18,7 @@ import com.example.idnpproyectogrupo07.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class HistoryFragment extends Fragment {
@@ -25,6 +26,7 @@ public class HistoryFragment extends Fragment {
     HistoryAdapter historyAdapter;
     RecyclerView recyclerView;
     ArrayList<HistoryItems> historyItems;
+    private Calendar date1;
 
     private final String pattern = "E, dd MMMM yyyy";
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
@@ -34,6 +36,8 @@ public class HistoryFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+
 
         View view = inflater.inflate(R.layout.fragment_history, container, false);
         recyclerView = view.findViewById(R.id.recycler_view_history);
