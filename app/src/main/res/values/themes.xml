@@ -76,6 +76,9 @@
     <style name="buttonFragment" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
         <item name="backgroundTint">@color/hamburguerColor</item>
     </style>
+    //Style register profile
+    <style name="RegisterButton" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    </style>
 
     //Style setting
     <style name="SettingsText" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -110,7 +113,9 @@
 
     </style>
 
-    <style name="ImageView.Circle" parent="">
+    <style name="ImageView.Circle" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+        <item name="cornerRadius">100dp</item>
     </style>
 </resources>
