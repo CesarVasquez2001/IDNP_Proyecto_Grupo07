@@ -50,18 +50,9 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // User
-        //User user= (User) bundle.getSerializable("USER");
-        //Log.d(TAG,"USUARIO RECIBIDO"+user);
-        data=getIntent().getExtras();
-        String email =data.getString("EMAIL");
-        String password =data.getString("PASSWORD");
-
-
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         setSupportActionBar(binding.appBarMain.toolBar);
 
         drawer = binding.drawerLayout;
@@ -78,7 +69,15 @@ public class MainActivity extends AppCompatActivity{
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        // database
+
+        // User
+        //User user= (User) bundle.getSerializable("USER");
+        //Log.d(TAG,"USUARIO RECIBIDO"+user);
+        data=getIntent().getExtras();
+        String email =data.getString("EMAIL");
+        String password =data.getString("PASSWORD");
+
+        // database datos iniciales
         dbUser = new DBUser(this);
         dbUser.OpenDb();
         User user = dbUser.loginUser(email,password);

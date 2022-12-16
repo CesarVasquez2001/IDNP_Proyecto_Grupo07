@@ -56,7 +56,7 @@ public class DBUser extends DBHelper {
             id_user = db.insert("t_user", null, values);
 
         } catch (Exception exception) {
-            //Toast.makeText(context, exception.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, exception.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
         return id_user;
@@ -81,6 +81,7 @@ public class DBUser extends DBHelper {
 
                 }while (cursor.moveToNext());
             }
+            cursor.close();
         }catch (Exception e){
             Toast.makeText(context,e.getMessage(),Toast.LENGTH_SHORT).show();
         }
