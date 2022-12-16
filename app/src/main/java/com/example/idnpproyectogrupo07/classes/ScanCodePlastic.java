@@ -1,6 +1,8 @@
 package com.example.idnpproyectogrupo07.classes;
 
 public class ScanCodePlastic {
+
+    private int id_code;
     private String nombre;
     private String placeholder;
     private int imagenId;
@@ -11,6 +13,14 @@ public class ScanCodePlastic {
         this.nombre = nombre;
         this.placeholder = placeholder;
         this.imagenId = imagenId;
+    }
+
+    public int getId_code() {
+        return id_code;
+    }
+
+    public void setId_code(int id_code) {
+        this.id_code = id_code;
     }
 
     public String getNombre() {

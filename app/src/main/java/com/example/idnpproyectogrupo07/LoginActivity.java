@@ -12,10 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.idnpproyectogrupo07.classes.ScanCodePlastic;
+import com.example.idnpproyectogrupo07.database.DBCode;
 import com.example.idnpproyectogrupo07.database.DBHelper;
+import com.example.idnpproyectogrupo07.database.DBType;
 import com.example.idnpproyectogrupo07.database.DBUser;
 import com.example.idnpproyectogrupo07.database.User;
 import com.example.idnpproyectogrupo07.databinding.ActivityLoginBinding;
@@ -26,22 +30,35 @@ public class LoginActivity extends AppCompatActivity {
     private @NonNull
     ActivityLoginBinding binding;
     private DBUser dbUser;
+    private DBCode dbCode;
+    private DBType dbType;
+
 
     private  Button buttonSignIn;
     private TextView txtSignUp;
     private EditText txtEmail,txtPassword;
+
+    private ImageView imageView;
+    private static String TAG = "LoginActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-    /*
-        setContentView(R.layout.activity_login);
-        */
+
+
+        // Inicializar datos de codigo y tipo si se entra por primera vez a la app
+        dbCode = new DBCode(this);
+        dbCode.OpenDb();
+        Log.d(TAG,"SIZE CODE: " + dbCode.getSize() );
+
+        dbType = new DBType(this);
+        dbType.OpenDb();
+        Log.d(TAG,"SIZE CODE: " + dbType.getSize() );
 
         //Database
-
         dbUser = new DBUser(this);
         dbUser.OpenDb();
 

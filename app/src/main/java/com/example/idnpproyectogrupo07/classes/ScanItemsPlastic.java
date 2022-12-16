@@ -2,6 +2,7 @@ package com.example.idnpproyectogrupo07.classes;
 
 public class ScanItemsPlastic {
 
+    private int id_type;
     private String nombre;
     private String placeholder;
     private int imagenid;
@@ -13,7 +14,13 @@ public class ScanItemsPlastic {
         this.placeholder = placeholder;
         this.imagenid = imagenid;
     }
+    public int getId_type() {
+        return id_type;
+    }
 
+    public void setId_type(int id_type) {
+        this.id_type = id_type;
+    }
     public String getNombre() {
         return nombre;
     }
@@ -34,7 +41,7 @@ public class ScanItemsPlastic {
         return imagenid;
     }
 
-    public void setImagenid(int imagenid) {
+    public void setImagenId(int imagenid) {
         this.imagenid = imagenid;
     }
 }

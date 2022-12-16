@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import java.io.Serializable;
+import java.math.BigInteger;
+import java.nio.ByteBuffer;
 
 public class DBHelper extends SQLiteOpenHelper implements Serializable {
 
@@ -64,4 +66,16 @@ public class DBHelper extends SQLiteOpenHelper implements Serializable {
         sqLiteDatabase.execSQL("DROP TABLE " + TABLE_PLASTIC);
         onCreate(sqLiteDatabase);
     }
+
+
+
+    public byte[] bigIntToByteArray( int i ) {
+        BigInteger bigInt = BigInteger.valueOf(i);
+        return bigInt.toByteArray();
+    }
+
+    public static int convertByteArrayToInt(byte[] bytes) {
+        return ByteBuffer.wrap(bytes).getInt();
+    }
+
 }
