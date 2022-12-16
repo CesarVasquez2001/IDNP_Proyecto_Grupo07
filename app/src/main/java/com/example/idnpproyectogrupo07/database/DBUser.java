@@ -28,7 +28,6 @@ public class DBUser extends DBHelper {
 
     public DBUser OpenDb() {
         DBHelper dbCon = new DBHelper(context);
-
         db = dbCon.getWritableDatabase();
         return this;
     }
@@ -47,7 +46,7 @@ public class DBUser extends DBHelper {
 
 
             values.put("fullname", user.getFullname());
-            values.put("email", user.getFullname());
+            values.put("email", user.getEmail());
             values.put("password", user.getPassword());
             values.put("gender", user.getGender());
             values.put("date_of_birth", user.getDate_of_birth());
