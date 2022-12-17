@@ -2,6 +2,7 @@ package com.example.idnpproyectogrupo07.ui.scan;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import static android.app.Activity.RESULT_OK;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -23,11 +24,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import com.example.idnpproyectogrupo07.R;
-import com.example.idnpproyectogrupo07.databinding.FragmentScanBinding;
-import com.example.idnpproyectogrupo07.ui.scan.ScanViewModel;
-import com.google.android.material.navigation.NavigationView;
+
 
 public class ScanFragment extends Fragment {
 
@@ -50,13 +53,14 @@ public class ScanFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        abrirCamara();
+        camaraLauncher.launch(new Intent(MediaStore.ACTION_IMAGE_CAPTURE));
         return inflater.inflate(R.layout.fragment_scan, container, false);
 
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        imageView = view.findViewById(R.id.ImageViewScan);
         Button button= view.findViewById(R.id.btnplastic);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,18 +77,18 @@ public class ScanFragment extends Fragment {
         startActivityForResult(intent, 1);
         //}
     }
-    /*
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Log.e("Test Err!","a");
-            Bitmap imgBitmap = (Bitmap) extras.get("data");
-            imageView.setImageBitmap(imgBitmap);
 
+
+
+    ActivityResultLauncher<Intent>camaraLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if (result.getResultCode() ==RESULT_OK) {
+                Bundle extras = result.getData().getExtras();
+                Log.e("Test Err!", "a");
+                Bitmap imgBitmap = (Bitmap) extras.get("data");
+                imageView.setImageBitmap(imgBitmap);
         }
-    }*/
-
-
+    }
+});
 }
