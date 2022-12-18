@@ -76,7 +76,15 @@
     <fragment
         android:id="@+id/code_list"
         android:name="com.example.idnpproyectogrupo07.ui.scan.CodeListFragment"
-        android:label="CodeListFragment" />
+        android:label="CodeListFragment" >
+        <action
+            android:id="@+id/action_code_list_to_confirmationRecycle"
+            app:destination="@id/confirmationRecycle" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmationRecycle"
+        android:name="com.example.idnpproyectogrupo07.ui.scan.ConfirmationRecycle"
+        android:label="ConfirmationRecycle" />
 
 
 </navigation>

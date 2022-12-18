@@ -1,7 +1,10 @@
 package com.example.idnpproyectogrupo07.ui.scan;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,6 +32,11 @@ public class CodeListFragment extends Fragment {
     ScanCodeAdapter scanCodeAdapter;
     RecyclerView recyclerViewItemsCodes;
     ArrayList<ScanCodePlastic> listaCodes;
+
+    //referencias para comunicar fragements
+
+    Activity actividad;
+    iComunicaFragments interfaceCommunicationFragments;
 
 
     public CodeListFragment() {
@@ -92,8 +100,28 @@ public class CodeListFragment extends Fragment {
             public void onClick(View view) {
                 String nombre = listaCodes.get(recyclerViewItemsCodes.getChildAdapterPosition(view)).getNombre();
                 Toast.makeText(getContext(), "Selecciono" + nombre, Toast.LENGTH_SHORT).show();
-                //Navigation.findNavController(view).navigate(R.id.action_nav_plastic_list_to_codeListFragment);
+                //interfaceCommunicationFragments.sendCodes(listaCodes.get(recyclerViewItemsCodes.getChildAdapterPosition(view)));
+                Bundle datos = new Bundle();
+                datos.putString("NombreCodeConfirmation", listaCodes.get(recyclerViewItemsCodes.getChildAdapterPosition(view)).getNombre());
+                getParentFragmentManager().setFragmentResult("dato1", datos);
+
+                Navigation.findNavController(view).navigate(R.id.confirmationRecycle);
             }
         });
     }
+    /*
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+        if (context instanceof Activity){
+            this.actividad = (Activity) context;
+            interfaceCommunicationFragments = (iComunicaFragments) this.actividad;
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }*/
 }

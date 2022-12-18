@@ -1,7 +1,10 @@
 package com.example.idnpproyectogrupo07.ui.scan;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -95,13 +98,16 @@ public class PlasticListFragment extends Fragment {
         recyclerViewItemsPlastic.setLayoutManager(new LinearLayoutManager(getContext()));
         scanPlasticAdapter = new ScanPlasticAdapter(getContext(), listaPlastic);
         recyclerViewItemsPlastic.setAdapter(scanPlasticAdapter);
-        ;
+
 
         scanPlasticAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nombre = listaPlastic.get(recyclerViewItemsPlastic.getChildAdapterPosition(view)).getNombre();
-                Toast.makeText(getContext(), "Selecciono" + nombre, Toast.LENGTH_SHORT).show();
+                String nombreCodeConfirmation = listaPlastic.get(recyclerViewItemsPlastic.getChildAdapterPosition(view)).getNombre();
+                Toast.makeText(getContext(), "Selecciono" + nombreCodeConfirmation, Toast.LENGTH_SHORT).show();
+                Bundle datos = new Bundle();
+                datos.putString("NombrePlasticConfirmation", listaPlastic.get(recyclerViewItemsPlastic.getChildAdapterPosition(view)).getNombre());
+                getParentFragmentManager().setFragmentResult("dato0", datos);
                 Navigation.findNavController(view).navigate(R.id.code_list);
             }
         });

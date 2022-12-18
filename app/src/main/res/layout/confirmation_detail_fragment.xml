@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/image_plastic_confirmation"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="25dp"
+            android:src="@drawable/plastic"
+
+            ></ImageView>
+
+        <TextView
+            android:id="@+id/nombre_plastic_confirmation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="25dp"
+            android:layout_toEndOf="@id/image_plastic_confirmation"
+            android:layout_toRightOf="@id/image_plastic_confirmation"
+            android:text="Botella de Plastico"
+            android:textSize="18dp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/nombre_code_confirmation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="e.g. agua, gaseosa, jugos, aceite, etc"
+            android:textSize="12dp"
+            android:layout_below="@id/nombre_plastic_confirmation"
+            android:layout_toEndOf="@id/image_plastic_confirmation"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="10dp">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/recycling_button"
+            android:layout_below="@id/image_plastic_confirmation"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="35dp"
+            android:layout_centerInParent="true"
+            android:text="Tap to recycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ></Button>
+
+        <Button
+            android:layout_below="@id/recycling_button"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="35dp"
+            android:layout_centerInParent="true"
+            android:text="Cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ></Button>
+    </RelativeLayout>
+
+</LinearLayout>
