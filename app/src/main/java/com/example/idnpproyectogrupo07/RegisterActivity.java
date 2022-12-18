@@ -99,13 +99,14 @@ public class RegisterActivity extends AppCompatActivity {
                 month = c.get(Calendar.MONTH);
                 year = c.get(Calendar.YEAR);
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(), new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(),R.style.DatePickerTheme,new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         txtDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                     }
                 }
-                        , day, month, year);
+                        , year, month, day);
+
                 datePickerDialog.show();
             }
         });
@@ -191,7 +192,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
 
                 }else{
-                    Toast.makeText(getApplicationContext(),"User already Exists",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Email already Exists",Toast.LENGTH_SHORT).show();
                 }
 
             }else{
