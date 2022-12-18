@@ -6,9 +6,11 @@
     android:layout_height="match_parent"
     android:background="@color/tolbarBackground"
     tools:context=".ui.settings.SettingFragment">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:id="@+id/setting_linear_layout"
             android:layout_width="match_parent"
@@ -16,84 +18,96 @@
             android:background="@color/tolbarBackground"
             android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@+id/setting_header">
+
             <include
                 android:id="@+id/setting_header"
                 layout="@layout/setting_header" />
+
             <TextView
                 android:id="@+id/text_account"
+                style="@style/Settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Settings"
                 android:text="ACCOUNT" />
+
             <TextView
                 android:id="@+id/text_edit_profile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
                 style="@style/SettingsText"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_baseline_account_circle_24"
                 android:text="Edit profile" />
+
             <TextView
                 android:id="@+id/text_change_password"
+                style="@style/SettingsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/SettingsText"
                 android:drawableStart="@drawable/ic_baseline_vpn_key_24"
 
                 android:text="Change password" />
+
             <TextView
                 android:id="@+id/text_preference"
+                style="@style/Settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Settings"
                 android:text="PREFERENCES" />
+
             <TextView
                 android:id="@+id/text_language"
+                style="@style/SettingsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/SettingsText"
                 android:drawableStart="@drawable/ic_baseline_language_24"
                 android:text="Language" />
+
             <Switch
+                android:id="@+id/switch_dark_mode"
+                style="@style/SettingSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sound"
-                style="@style/SettingSwitch"
 
                 android:drawableStart="@drawable/ic_baseline_dark_mode_24"
-                android:id="@+id/switch_dark_mode" />
+                android:text="Sound" />
+
             <TextView
                 android:id="@+id/text_others"
+                style="@style/Settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Settings"
                 android:text="OTHERS" />
+
             <TextView
                 android:id="@+id/text_privacy_policy"
+                style="@style/SettingsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/SettingsText"
                 android:drawableStart="@drawable/ic_baseline_account_circle_24"
                 android:text="Privacy policy" />
+
             <TextView
                 android:id="@+id/text_terms_and_conditions"
+                style="@style/SettingsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/SettingsText"
                 android:drawableStart="@drawable/ic_baseline_library_books_24"
                 android:text="Terms and conditions" />
+
             <TextView
                 android:id="@+id/text_about_us"
+                style="@style/SettingsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/SettingsText"
                 android:drawableStart="@drawable/ic_baseline_account_circle_24"
                 android:text="About us" />
+
             <TextView
                 android:id="@+id/text_help"
+                style="@style/SettingsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/SettingsText"
                 android:drawableStart="@drawable/ic_baseline_error_outline_24"
                 android:text="Help" />
         </LinearLayout>
