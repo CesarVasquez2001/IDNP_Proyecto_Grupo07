@@ -18,8 +18,7 @@ import java.util.ArrayList;
 
 public class DBType extends DBHelper {
 
-    Context context;
-    private SQLiteDatabase db;
+
 
     private ByteArrayOutputStream byteArrayOutputStream;
     private byte[] imageInBytes;
@@ -28,7 +27,6 @@ public class DBType extends DBHelper {
         super(context);
         this.context = context;
     }
-
 
     public DBType OpenDb() {
         DBHelper dbCon = new DBHelper(context);
@@ -98,7 +96,6 @@ public class DBType extends DBHelper {
         return id_type;
     }
 
-
     public ScanItemsPlastic getType(int id_type) {
         ScanItemsPlastic type = new ScanItemsPlastic();
         try {
@@ -142,7 +139,4 @@ public class DBType extends DBHelper {
         }
         return scanItemsPlastics;
     }
-
-
-
 }

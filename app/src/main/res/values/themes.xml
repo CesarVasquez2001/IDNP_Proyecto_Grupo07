@@ -67,6 +67,17 @@
         <item name="android:textColor">@color/hamburguerColor</item>
     </style>
     //Style edit text profile
+
+    <style name="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="materialThemeOverlay">
+            @style/ThemeOverlay.MaterialComponents.AutoCompleteTextView.OutlinedBox
+        </item>
+        <item name="endIconMode">dropdown_menu</item>
+        <item name="endIconTint">@color/hamburguerColor</item>
+        <item name="boxStrokeColor">@color/hamburguerColor</item>
+
+    </style>
+
     <style name="EditTextSettings" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:textSize">20dp</item>
         <item name="android:padding">5dp</item>
@@ -117,5 +128,20 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
         <item name="cornerRadius">100dp</item>
+    </style>
+    
+    
+    //Date picker
+
+    <style name="DatePickerTheme" parent="Theme.AppCompat.Light.Dialog">
+
+        <item name="colorAccent">@color/hamburguerColor</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/DatePickerTheme.ButtonBarStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/DatePickerTheme.ButtonBarStyle</item>
+
+    </style>
+
+    <style name="DatePickerTheme.ButtonBarStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/hamburguerColor</item>
     </style>
 </resources>

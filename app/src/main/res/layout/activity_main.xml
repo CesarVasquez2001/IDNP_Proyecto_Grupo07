@@ -20,6 +20,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        android:touchscreenBlocksFocus="false"
         style="@style/Widget.Custom.NavigationView"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer"
