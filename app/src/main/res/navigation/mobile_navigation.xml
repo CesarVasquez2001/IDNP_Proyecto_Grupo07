@@ -67,7 +67,7 @@
     <fragment
         android:id="@+id/plastic_list"
         android:name="com.example.idnpproyectogrupo07.ui.scan.PlasticListFragment"
-        android:label="fragment_plastic_list"
+        android:label="Types of plastics"
         tools:layout="@layout/fragment_plastic_list" >
         <action
             android:id="@+id/action_nav_plastic_list_to_codeListFragment"
@@ -76,7 +76,7 @@
     <fragment
         android:id="@+id/code_list"
         android:name="com.example.idnpproyectogrupo07.ui.scan.CodeListFragment"
-        android:label="CodeListFragment" >
+        android:label="Plastics codes" >
         <action
             android:id="@+id/action_code_list_to_confirmationRecycleFragment"
             app:destination="@id/confirmationRecycleFragment" />
@@ -85,7 +85,7 @@
     <fragment
         android:id="@+id/confirmationRecycleFragment"
         android:name="com.example.idnpproyectogrupo07.ui.scan.ConfirmationRecycleFragment"
-        android:label="ConfirmationRecycle"
+        android:label="Confirmation of scanned plastic"
         tools:layout="@layout/fragment_confirmation_recycle" >
         <action
             android:id="@+id/action_confirmationRecycleFragment_to_nav_scan"

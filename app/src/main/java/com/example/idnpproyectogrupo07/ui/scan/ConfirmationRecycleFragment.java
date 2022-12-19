@@ -33,6 +33,7 @@ import com.example.idnpproyectogrupo07.databinding.RecyclerViewItemHistoryBindin
 
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 
 public class ConfirmationRecycleFragment extends Fragment {
@@ -86,7 +87,7 @@ public class ConfirmationRecycleFragment extends Fragment {
 
         date = binding.plasticDate;
         Calendar calendar = Calendar.getInstance();
-        date.setText(DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime()));
+        date.setText(DateFormat.getDateInstance(DateFormat.FULL, Locale.ENGLISH).format(calendar.getTime()));
 
         // TYPE
         ImageView type = binding.plasticType.imageViewHistoryItem;
