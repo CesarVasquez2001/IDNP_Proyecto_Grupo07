@@ -90,4 +90,19 @@ public class DBPlastic extends DBHelper{
         return plastics;
     }
 
+    public int getSize(int id_user) {
+        int size = -1;
+        try {
+            Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM t_plastic WHERE id_user_column=?", new String[]{String.valueOf(id_user)});
+            if (cursor.moveToFirst()) {
+                do {
+                    size = cursor.getInt(0);
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        } catch (Exception e) {
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        return size;
+    }
 }

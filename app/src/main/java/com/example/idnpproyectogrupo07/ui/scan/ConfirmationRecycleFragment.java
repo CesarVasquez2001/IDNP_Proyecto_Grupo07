@@ -98,6 +98,8 @@ public class ConfirmationRecycleFragment extends Fragment {
 
         TextView type_description = binding.plasticType.textViewItemDescription;
         type_description.setText(scanItemsPlastic.getPlaceholder());
+
+        binding.plasticType.textViewItemStatus.setText("");
         // CODE
         ImageView code = binding.plasticCode.imageViewHistoryItem;
         code.setImageResource(scanCodePlastic.getImagenId());
@@ -107,6 +109,9 @@ public class ConfirmationRecycleFragment extends Fragment {
 
         TextView code_description = binding.plasticCode.textViewItemDescription;
         code_description.setText(scanCodePlastic.getPlaceholder());
+
+        binding.plasticCode.textViewItemStatus.setText("");
+
         //BUTTON
         Button cancel = binding.cancel;
         Button scrap = binding.recyclingButton;
