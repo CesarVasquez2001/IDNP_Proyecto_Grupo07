@@ -2,6 +2,7 @@ package com.example.idnpproyectogrupo07.ui.scan;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import com.example.idnpproyectogrupo07.R;
 import com.example.idnpproyectogrupo07.adapters.ScanPlasticAdapter;
 import com.example.idnpproyectogrupo07.classes.ScanItemsPlastic;
 import com.example.idnpproyectogrupo07.database.DBType;
+import com.example.idnpproyectogrupo07.databinding.FragmentPlasticListBinding;
 
 import java.util.ArrayList;
 
@@ -61,6 +63,9 @@ public class PlasticListFragment extends Fragment {
         cargarLista();
         //mostrarlista
         mostrarLista();
+
+
+
         return view;
     }
 
@@ -70,12 +75,11 @@ public class PlasticListFragment extends Fragment {
      */
     public void cargarLista() {
 
-        /*
         DBType dbType = new DBType(getActivity());
         dbType.OpenDb();
         listaPlastic =  dbType.getAllType();
-        */
 
+        /*
         listaPlastic.add(new ScanItemsPlastic("Botella de Plastico", "e.g. agua, jugos, gaseosas, etc", R.drawable.plastic));
         listaPlastic.add(new ScanItemsPlastic("Envoltorio de Plastico", "e.g. dulces, caramelos, goma de mascar, etc ", R.drawable.wrapper));
         listaPlastic.add(new ScanItemsPlastic("Bolsa de Plastico", "e.g. supermercado, ......, ...., etc ", R.drawable.bag));
@@ -91,7 +95,7 @@ public class PlasticListFragment extends Fragment {
         listaPlastic.add(new ScanItemsPlastic("Aplicador de Plastico", "e.g. desodorante, balsamo labial, etc ", R.drawable.deodorant));
         listaPlastic.add(new ScanItemsPlastic("Caja de Plastico", "e.g. videojuegos, DVD, etc ", R.drawable.game));
         listaPlastic.add(new ScanItemsPlastic("Plastico Desconocido", "e.g. Si no conoces el plastico pero puedes dar mas detalles del mismo, etc ", R.drawable.unknown));
-
+        */
     }
 
     public void mostrarLista() {
@@ -103,12 +107,18 @@ public class PlasticListFragment extends Fragment {
         scanPlasticAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // imagen tomada desde el fragment de scan
+                Bitmap bitmapimage = getArguments().getParcelable("BitmapImage");
+
+
                 String nombreCodeConfirmation = listaPlastic.get(recyclerViewItemsPlastic.getChildAdapterPosition(view)).getNombre();
                 Toast.makeText(getContext(), "Selecciono" + nombreCodeConfirmation, Toast.LENGTH_SHORT).show();
+
                 Bundle datos = new Bundle();
-                datos.putString("NombrePlasticConfirmation", listaPlastic.get(recyclerViewItemsPlastic.getChildAdapterPosition(view)).getNombre());
-                getParentFragmentManager().setFragmentResult("dato0", datos);
-                Navigation.findNavController(view).navigate(R.id.code_list);
+                datos.putInt("id_type_column", listaPlastic.get(recyclerViewItemsPlastic.getChildAdapterPosition(view)).getId_type());
+                datos.putParcelable("BitmapImage",bitmapimage);
+
+                Navigation.findNavController(view).navigate(R.id.code_list,datos);
             }
         });
     }

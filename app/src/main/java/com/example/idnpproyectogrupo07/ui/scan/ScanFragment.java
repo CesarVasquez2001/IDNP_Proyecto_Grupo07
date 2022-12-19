@@ -34,13 +34,16 @@ import com.example.idnpproyectogrupo07.R;
 
 
 public class ScanFragment extends Fragment {
-
+    private static final String TAG = "Scanfragment";
     private static final int CAMERA_REQUEST_CODE = 1999;
     private ScanViewModel mViewModel;
     ImageView imageView;
     Button btnplastic;
     RecyclerView recyclerView;
     View view;
+
+    private Bitmap imgBitmap;
+
 
     @NonNull
     @Override
@@ -54,7 +57,6 @@ public class ScanFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        camaraLauncher.launch(new Intent(MediaStore.ACTION_IMAGE_CAPTURE));
         return inflater.inflate(R.layout.fragment_scan, container, false);
 
     }
@@ -63,10 +65,29 @@ public class ScanFragment extends Fragment {
         super.onViewCreated(viewFrag, savedInstanceState);
         imageView = viewFrag.findViewById(R.id.ImageViewScan);
         Button button= viewFrag.findViewById(R.id.btnplastic);
+        Button camera= viewFrag.findViewById(R.id.btnCamera);
+
+        camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                camaraLauncher.launch(new Intent(MediaStore.ACTION_IMAGE_CAPTURE));
+
+            }
+        });
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.plastic_list);
+                if (imgBitmap ==null){
+                    Toast.makeText(getContext(),"Choose an image for scanning",Toast.LENGTH_SHORT).show();
+                }else{
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("BitmapImage", imgBitmap);
+                    Navigation.findNavController(view).navigate(R.id.plastic_list,bundle);
+                }
+
+
+
                 /*Bundle dato2 = new Bundle();
                 dato2.putParcelableArray("ImagenPlasticConfirmation", imageView);
                 getParentFragmentManager().setFragmentResult("dato2", dato2);*/
@@ -90,7 +111,7 @@ public class ScanFragment extends Fragment {
             if (result.getResultCode() ==RESULT_OK) {
                 Bundle extras = result.getData().getExtras();
                 Log.e("Test Err!", "a");
-                Bitmap imgBitmap = (Bitmap) extras.get("data");
+                imgBitmap = (Bitmap) extras.get("data");
                 imageView.setImageBitmap(imgBitmap);
         }
     }

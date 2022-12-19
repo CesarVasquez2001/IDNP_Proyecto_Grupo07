@@ -2,6 +2,7 @@ package com.example.idnpproyectogrupo07.ui.scan;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -74,11 +75,11 @@ public class CodeListFragment extends Fragment {
     aplicator, plastic case, unknown plastic/*
      */
     public void cargarLista() {
-        /*
+
         DBCode dbCode = new DBCode(getActivity());
         dbCode.OpenDb();
         listaCodes =  dbCode.getAllCode();
-        */
+        /*
         listaCodes.add(new ScanCodePlastic("PET Plastic", "e.g. Clear bottles, pots, trays and punnets", R.drawable.code1));
         listaCodes.add(new ScanCodePlastic("HDPE Plastic", "e.g. Milk jugs, shampoo, chemical and detergent bottles ", R.drawable.code2));
         listaCodes.add(new ScanCodePlastic("PVC Plastic", "e.g. Cosmetic containers and household fittings ", R.drawable.code3));
@@ -86,7 +87,7 @@ public class CodeListFragment extends Fragment {
         listaCodes.add(new ScanCodePlastic("PP Plastic", "e.g. Single pots, tubs, ready-meal trays and rigid caps ", R.drawable.code5));
         listaCodes.add(new ScanCodePlastic("PS Plastic", "e.g. Multipack yogurt snap pots and video games cases ", R.drawable.code6));
         listaCodes.add(new ScanCodePlastic("Other Plastic", "e.g. Nets, PLA, clear CD cases and acrylic ", R.drawable.code7));
-
+        */
     }
 
     public void mostrarLista() {
@@ -98,14 +99,19 @@ public class CodeListFragment extends Fragment {
         scanCodeAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // imagen tomada desde el fragment de scan
+                Bitmap bitmapimage = getArguments().getParcelable("BitmapImage");
+                int type = getArguments().getInt("id_type_column");
+
                 String nombre = listaCodes.get(recyclerViewItemsCodes.getChildAdapterPosition(view)).getNombre();
                 Toast.makeText(getContext(), "Selecciono" + nombre, Toast.LENGTH_SHORT).show();
                 //interfaceCommunicationFragments.sendCodes(listaCodes.get(recyclerViewItemsCodes.getChildAdapterPosition(view)));
                 Bundle datos = new Bundle();
-                datos.putString("NombreCodeConfirmation", listaCodes.get(recyclerViewItemsCodes.getChildAdapterPosition(view)).getNombre());
-                getParentFragmentManager().setFragmentResult("dato1", datos);
+                datos.putInt("id_code_column", listaCodes.get(recyclerViewItemsCodes.getChildAdapterPosition(view)).getId_code());
+                datos.putInt("id_type_column",type);
+                datos.putParcelable("BitmapImage",bitmapimage);
 
-                Navigation.findNavController(view).navigate(R.id.confirmationRecycle);
+                Navigation.findNavController(view).navigate(R.id.confirmationRecycleFragment,datos);
             }
         });
     }

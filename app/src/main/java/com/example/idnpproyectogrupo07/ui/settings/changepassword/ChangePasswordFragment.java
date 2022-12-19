@@ -1,7 +1,5 @@
 package com.example.idnpproyectogrupo07.ui.settings.changepassword;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,11 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.idnpproyectogrupo07.R;
 import com.example.idnpproyectogrupo07.database.DBUser;
-import com.example.idnpproyectogrupo07.database.User;
+import com.example.idnpproyectogrupo07.classes.User;
 import com.example.idnpproyectogrupo07.databinding.FragmentChangePasswordBinding;
-import com.example.idnpproyectogrupo07.databinding.FragmentEditProfileBinding;
 
 public class ChangePasswordFragment extends Fragment {
 

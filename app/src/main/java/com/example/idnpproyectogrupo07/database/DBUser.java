@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.idnpproyectogrupo07.classes.User;
+
 import java.io.ByteArrayOutputStream;
 
 public class DBUser extends DBHelper {
@@ -30,14 +32,15 @@ public class DBUser extends DBHelper {
         return this;
     }
 
+
     public boolean updateUser(User user) {
         boolean result = false;
         try {
             ContentValues values = new ContentValues();
+
             Bitmap imageToStoreBitmap = user.getProfile_picture();
-            byteArrayOutputStream = new ByteArrayOutputStream();
-            imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-            imageInBytes = byteArrayOutputStream.toByteArray();
+            imageInBytes = compressImage(getBytes(imageToStoreBitmap));
+
             values.put("fullname", user.getFullname());
             values.put("email", user.getEmail());
             values.put("gender", user.getGender());
@@ -47,7 +50,7 @@ public class DBUser extends DBHelper {
             db.update("t_user",values,"id_user = " + user.getId_user(),null);
             result=true;
         } catch (Exception exception) {
-            Toast.makeText(context, exception.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "UPDATE PROFILE"+ exception.getMessage(), Toast.LENGTH_SHORT).show();
         }
         return result;
     }
@@ -74,9 +77,7 @@ public class DBUser extends DBHelper {
             ContentValues values = new ContentValues();
 
             Bitmap imageToStoreBitmap = user.getProfile_picture();
-            byteArrayOutputStream = new ByteArrayOutputStream();
-            imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-            imageInBytes = byteArrayOutputStream.toByteArray();
+            imageInBytes = compressImage(getBytes(imageToStoreBitmap));
 
             values.put("fullname", user.getFullname());
             values.put("email", user.getEmail());

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.scan.ConfirmationRecycleFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingStart="30dp"
+        android:text="Scanned item"
+        style="@style/Settings"
+        >
+
+    </TextView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="0dp">
+
+        <ImageView
+            android:id="@+id/image_plastic_confirmation"
+            android:layout_width="63dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="25dp"
+            android:src="@drawable/plastic"></ImageView>
+
+        <TextView
+            android:id="@+id/plastic_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/image_plastic_confirmation"
+            android:layout_toRightOf="@id/image_plastic_confirmation"
+            android:text="Date:"
+            android:textSize="18dp"
+            android:textStyle="bold"></TextView>
+
+
+        <TextView
+            android:id="@+id/plasitc_title_amount"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:layout_below="@id/plastic_date"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@id/image_plastic_confirmation"
+            android:text="Amount"></TextView>
+
+        <EditText
+            android:id="@+id/plastic_amount"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/plastic_date"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@id/plasitc_title_amount"
+            android:inputType="number"
+            >
+
+        </EditText>
+
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:text="Category"
+            style="@style/Settings">
+        </TextView>
+        <include
+            android:id="@+id/plastic_type"
+            layout="@layout/recycler_view_item_history" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:text="Code"
+            style="@style/Settings">
+        </TextView>
+        <include
+            android:id="@+id/plastic_code"
+
+            layout="@layout/recycler_view_item_history" />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/recycling_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_plastic_confirmation"
+        android:layout_marginTop="10dp"
+        style="@style/buttonFragment"
+        android:layout_gravity="center"
+        android:text="Tap to recycle"></Button>
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recycling_button"
+        android:layout_marginTop="10dp"
+        style="@style/buttonFragment"
+        android:layout_gravity="center"
+        android:text="Cancel"></Button>
+
+</LinearLayout>

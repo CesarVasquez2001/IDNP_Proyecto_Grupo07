@@ -2,12 +2,9 @@ package com.example.idnpproyectogrupo07.ui.settings.editprofile;
 
 import static android.app.Activity.RESULT_OK;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -30,7 +27,7 @@ import android.widget.Toast;
 
 import com.example.idnpproyectogrupo07.R;
 import com.example.idnpproyectogrupo07.database.DBUser;
-import com.example.idnpproyectogrupo07.database.User;
+import com.example.idnpproyectogrupo07.classes.User;
 import com.example.idnpproyectogrupo07.databinding.FragmentEditProfileBinding;
 import com.google.android.material.imageview.ShapeableImageView;
 

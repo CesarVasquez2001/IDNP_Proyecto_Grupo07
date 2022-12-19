@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="40dp"
 
     tools:context=".ui.scan.PlasticListFragment" >
 
@@ -14,6 +13,6 @@
 
         android:id="@+id/recycler_view_codes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>

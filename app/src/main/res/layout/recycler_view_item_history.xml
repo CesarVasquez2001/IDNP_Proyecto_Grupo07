@@ -10,12 +10,14 @@
     app:cardUseCompatPadding="true">
 
     <LinearLayout
+        android:id="@+id/card_view_linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/card_view_linear_relative"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

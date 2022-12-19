@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -21,10 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.idnpproyectogrupo07.database.DBUser;
-import com.example.idnpproyectogrupo07.database.User;
-import com.example.idnpproyectogrupo07.databinding.ActivityLoginBinding;
+import com.example.idnpproyectogrupo07.classes.User;
 import com.example.idnpproyectogrupo07.databinding.ActivityRegisterBinding;
-import com.example.idnpproyectogrupo07.databinding.EditProfileHeaderBinding;
 import com.google.android.material.imageview.ShapeableImageView;
 
 import java.util.Calendar;

@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.idnpproyectogrupo07.database.DBUser;
-import com.example.idnpproyectogrupo07.database.User;
+import com.example.idnpproyectogrupo07.classes.User;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;

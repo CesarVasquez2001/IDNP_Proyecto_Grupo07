@@ -1,7 +1,5 @@
 package com.example.idnpproyectogrupo07.ui.settings;
 
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -11,16 +9,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import android.text.Layout;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.idnpproyectogrupo07.R;
 import com.example.idnpproyectogrupo07.database.DBUser;
-import com.example.idnpproyectogrupo07.database.User;
+import com.example.idnpproyectogrupo07.classes.User;
 import com.example.idnpproyectogrupo07.databinding.FragmentSettingBinding;
 import com.example.idnpproyectogrupo07.databinding.SettingHeaderBinding;
 

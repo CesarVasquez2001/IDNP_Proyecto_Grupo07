@@ -78,13 +78,18 @@
         android:name="com.example.idnpproyectogrupo07.ui.scan.CodeListFragment"
         android:label="CodeListFragment" >
         <action
-            android:id="@+id/action_code_list_to_confirmationRecycle"
-            app:destination="@id/confirmationRecycle" />
+            android:id="@+id/action_code_list_to_confirmationRecycleFragment"
+            app:destination="@id/confirmationRecycleFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/confirmationRecycle"
-        android:name="com.example.idnpproyectogrupo07.ui.scan.ConfirmationRecycle"
-        android:label="ConfirmationRecycle" />
 
+    <fragment
+        android:id="@+id/confirmationRecycleFragment"
+        android:name="com.example.idnpproyectogrupo07.ui.scan.ConfirmationRecycleFragment"
+        android:label="ConfirmationRecycle"
+        tools:layout="@layout/fragment_confirmation_recycle" >
+        <action
+            android:id="@+id/action_confirmationRecycleFragment_to_nav_scan"
+            app:destination="@id/nav_scan" />
+    </fragment>
 
 </navigation>

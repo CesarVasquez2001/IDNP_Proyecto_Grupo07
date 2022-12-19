@@ -1,4 +1,4 @@
-package com.example.idnpproyectogrupo07.database;
+package com.example.idnpproyectogrupo07.classes;
 
 import android.graphics.Bitmap;
 

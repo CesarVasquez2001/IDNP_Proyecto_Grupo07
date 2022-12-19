@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.example.idnpproyectogrupo07.database.DBCode;
 import com.example.idnpproyectogrupo07.database.DBType;
 import com.example.idnpproyectogrupo07.database.DBUser;
-import com.example.idnpproyectogrupo07.database.User;
+import com.example.idnpproyectogrupo07.classes.User;
 import com.example.idnpproyectogrupo07.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
