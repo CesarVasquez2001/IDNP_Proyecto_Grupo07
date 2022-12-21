@@ -1,4 +1,4 @@
-package com.example.idnpproyectogrupo07.ui.settings;
+package com.example.idnpproyectogrupo07.ui.scan.settings;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

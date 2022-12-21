@@ -54,7 +54,7 @@
         tools:layout="@layout/fragment_signout" />
     <fragment
         android:id="@+id/nav_setting"
-        android:name="com.example.idnpproyectogrupo07.ui.settings.SettingFragment"
+        android:name="com.example.idnpproyectogrupo07.ui.scan.settings.SettingFragment"
         android:label="@string/menu_setting"
         tools:layout="@layout/fragment_setting"
         >
@@ -64,16 +64,17 @@
         <action
             android:id="@+id/action_nav_setting_to_nav_setting_change_password"
             app:destination="@id/nav_setting_change_password" />
+        <action android:id="@+id/action_nav_setting_to_nav_education" />
     </fragment>
     <fragment
         android:id="@+id/nav_setting_edit_profile"
-        android:name="com.example.idnpproyectogrupo07.ui.settings.editprofile.EditProfileFragment"
+        android:name="com.example.idnpproyectogrupo07.ui.scan.settings.editprofile.EditProfileFragment"
         android:label="@string/menu_setting_edit_profile"
         tools:layout="@layout/fragment_edit_profile"
         />
     <fragment
         android:id="@+id/nav_setting_change_password"
-        android:name="com.example.idnpproyectogrupo07.ui.settings.changepassword.ChangePasswordFragment"
+        android:name="com.example.idnpproyectogrupo07.ui.scan.settings.changepassword.ChangePasswordFragment"
         android:label="@string/menu_setting_change_password"
         tools:layout="@layout/fragment_change_password"
         />

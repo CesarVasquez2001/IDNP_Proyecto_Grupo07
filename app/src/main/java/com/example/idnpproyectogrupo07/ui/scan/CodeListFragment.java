@@ -34,10 +34,10 @@ public class CodeListFragment extends Fragment {
     RecyclerView recyclerViewItemsCodes;
     ArrayList<ScanCodePlastic> listaCodes;
 
-    //referencias para comunicar fragements
+    /*referencias para comunicar fragements
 
     Activity actividad;
-    iComunicaFragments interfaceCommunicationFragments;
+    iComunicaFragments interfaceCommunicationFragments;*/
 
 
     public CodeListFragment() {

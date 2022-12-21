@@ -16,6 +16,7 @@ import androidx.navigation.Navigation;
 import androidx.viewbinding.ViewBinding;
 
 import com.example.idnpproyectogrupo07.R;
+import com.example.idnpproyectogrupo07.classes.EducationItems;
 import com.example.idnpproyectogrupo07.classes.Plastic;
 import com.example.idnpproyectogrupo07.classes.ScanCodePlastic;
 import com.example.idnpproyectogrupo07.classes.ScanItemsPlastic;

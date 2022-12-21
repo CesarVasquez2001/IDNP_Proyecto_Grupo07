@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/image_education"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/code1"
+
+            ></ImageView>
+
+        <TextView
+            android:id="@+id/nombre_education"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="25dp"
+            android:layout_toEndOf="@id/image_education"
+            android:layout_toRightOf="@id/image_education"
+            android:text="PET Plastic"
+            android:textSize="18dp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/referencia_education"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear bottles, pots, trays and punnets"
+            android:textSize="12dp"
+            android:layout_below="@id/nombre_education"
+            android:layout_toEndOf="@id/image_education"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="10dp">
+
+        </TextView>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
