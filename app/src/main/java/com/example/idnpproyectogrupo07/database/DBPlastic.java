@@ -90,6 +90,34 @@ public class DBPlastic extends DBHelper{
         return plastics;
     }
 
+    public Plastic getPlastic(int id_plastic) {
+        Plastic plastic = new Plastic();
+         try {
+            Cursor cursor = db.rawQuery("SELECT * FROM t_plastic WHERE id_plastic=?", new String[]{String.valueOf(id_plastic)});
+            if (cursor.moveToFirst()) {
+                do {
+
+                    plastic.setId_plastic(cursor.getInt(0));
+                    plastic.setDate_plastic(cursor.getString(1));
+                    plastic.setAmount_plastic(cursor.getInt(2));
+
+                    byte[] imageByte = cursor.getBlob(3);
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length);
+                    plastic.setPlastic_picture(bitmap);
+
+                    plastic.setId_code_column(cursor.getInt(4));
+                    plastic.setId_type_column(cursor.getInt(5));
+                    plastic.setId_user_column(cursor.getInt(6));
+
+                 } while (cursor.moveToNext());
+            }
+
+        } catch (Exception e) {
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        return plastic;
+    }
+
     public int getSize(int id_user) {
         int size = -1;
         try {

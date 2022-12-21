@@ -1,4 +1,4 @@
-package com.example.idnpproyectogrupo07.ui.scan.settings.editprofile;
+package com.example.idnpproyectogrupo07.ui.settings.editprofile;
 
 import static android.app.Activity.RESULT_OK;
 

@@ -1,6 +1,7 @@
 package com.example.idnpproyectogrupo07.adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,20 +12,29 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.idnpproyectogrupo07.R;
-import com.example.idnpproyectogrupo07.classes.HistoryItems;
+import com.example.idnpproyectogrupo07.classes.Plastic;
+import com.example.idnpproyectogrupo07.classes.ScanCodePlastic;
+import com.example.idnpproyectogrupo07.classes.ScanItemsPlastic;
+import com.example.idnpproyectogrupo07.database.DBCode;
+import com.example.idnpproyectogrupo07.database.DBPlastic;
+import com.example.idnpproyectogrupo07.database.DBType;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
 
+    private ItemClickListener itemClickListener;
     // (1)
-    ArrayList<HistoryItems> model;
+    ArrayList<Plastic> model;
     LayoutInflater inflater;
-
+    Context context;
     // (2)
-    public HistoryAdapter(Context context, ArrayList<HistoryItems> model) {
+    public HistoryAdapter(Context context, ArrayList<Plastic> model,ItemClickListener itemClickListener) {
         this.inflater = LayoutInflater.from(context);
         this.model = model;
+        this.context = context;
+        this.itemClickListener = itemClickListener;
     }
 
 
@@ -40,15 +50,27 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     // (5)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String name = model.get(position).getName();
-        String description = model.get(position).getDescription();
-        String status = model.get(position).getStatus();
-        int image = model.get(position).getImage();
+        DBCode dbCode = new DBCode(this.context);
+        DBType dbType = new DBType(this.context);
+        dbCode.OpenDb();
+        dbType.OpenDb();
+        ScanItemsPlastic scanItemsPlastic = dbType.getType(model.get(position).getId_type_column());
+        ScanCodePlastic scanCodePlastic = dbCode.getCode(model.get(position).getId_code_column());
 
-        holder.name.setText(name);
-        holder.description.setText(description);
+        String status = model.get(position).getDate_plastic();
+        Bitmap image = model.get(position).getPlastic_picture();
+
+        holder.name.setText(scanItemsPlastic.getNombre());
+        holder.description.setText(scanCodePlastic.getNombre());
         holder.status.setText(status);
-        holder.image.setImageResource(image);
+        holder.image.setImageBitmap(image);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itemClickListener.onItemClick(model.get(position));
+            }
+        });
     }
 
     @Override
@@ -70,5 +92,9 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
             image = itemView.findViewById(R.id.image_view_history_item);
         }
+    }
+
+    public interface ItemClickListener{
+        public void onItemClick(Plastic plastic);
     }
 }

@@ -9,23 +9,31 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.idnpproyectogrupo07.adapters.HistoryAdapter;
 import com.example.idnpproyectogrupo07.classes.HistoryItems;
 import com.example.idnpproyectogrupo07.R;
+import com.example.idnpproyectogrupo07.classes.Plastic;
+import com.example.idnpproyectogrupo07.classes.User;
+import com.example.idnpproyectogrupo07.database.DBPlastic;
+import com.example.idnpproyectogrupo07.database.DBUser;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
-public class HistoryFragment extends Fragment {
+public class HistoryFragment extends Fragment implements HistoryAdapter.ItemClickListener{
 
     HistoryAdapter historyAdapter;
     RecyclerView recyclerView;
-    ArrayList<HistoryItems> historyItems;
+    ArrayList<Plastic> historyItems;
     private Calendar date1;
 
     private final String pattern = "E, dd MMMM yyyy";
@@ -50,24 +58,33 @@ public class HistoryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        date = simpleDateFormat.format(new Date());
-        tv_date = view.findViewById(R.id.tv_date);
-        tv_date.setText(date);
+
     }
 
     public void loadItems() {
-        historyItems.add(new HistoryItems(R.drawable.shopping_bag, "Shopping bag", "Bags after shopping", "125g"));
-        historyItems.add(new HistoryItems(R.drawable.bottle_of_water, "Bottle of water", "Plastic bottle", "287g"));
-        historyItems.add(new HistoryItems(R.drawable.used_product, "Used product", "Plastic product packaging", "1000g"));
-        historyItems.add(new HistoryItems(R.drawable.milk_bottle, "Drinks", "More plastic packaging", "100g"));
-        historyItems.add(new HistoryItems(R.drawable.tea, "Disposable Drink", "Plastic packaging", "300g"));
-        historyItems.add(new HistoryItems(R.drawable.coffee, "Coffee To Go", "More plastic packaging", "287g"));
-        historyItems.add(new HistoryItems(R.drawable.iced_coffee, "Fast Drink", "Plastic packaging", "120g"));
+        DBUser dbUser = new DBUser(getContext());
+        dbUser.OpenDb();
+        User user = dbUser.getPreference();
+
+        DBPlastic dbPlastic = new DBPlastic(getContext());
+        dbPlastic.OpenDb();
+
+        ArrayList<Plastic> plastics = dbPlastic.getAllPlastic((int) user.getId_user());
+
+        Collections.reverse(plastics);
+        historyItems = plastics;
     }
 
     public void displayItems() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        historyAdapter = new HistoryAdapter(getContext(), historyItems);
+        historyAdapter = new HistoryAdapter(getContext(), historyItems,this);
         recyclerView.setAdapter(historyAdapter);
+    }
+
+    @Override
+    public void onItemClick(Plastic plastic) {
+        Bundle bundle = new Bundle();
+        bundle.putInt("plastic",plastic.getId_plastic());
+        Navigation.findNavController(getView()).navigate(R.id.historyDetailFragment,bundle);
     }
 }

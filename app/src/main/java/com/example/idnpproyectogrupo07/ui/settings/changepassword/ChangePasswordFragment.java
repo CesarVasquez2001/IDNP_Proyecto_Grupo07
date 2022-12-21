@@ -1,4 +1,4 @@
-package com.example.idnpproyectogrupo07.ui.scan.settings.changepassword;
+package com.example.idnpproyectogrupo07.ui.settings.changepassword;
 
 import android.os.Bundle;
 

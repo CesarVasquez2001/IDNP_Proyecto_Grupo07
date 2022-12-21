@@ -1,4 +1,4 @@
-package com.example.idnpproyectogrupo07.ui.scan.settings;
+package com.example.idnpproyectogrupo07.ui.settings;
 
 import androidx.lifecycle.ViewModelProvider;
 

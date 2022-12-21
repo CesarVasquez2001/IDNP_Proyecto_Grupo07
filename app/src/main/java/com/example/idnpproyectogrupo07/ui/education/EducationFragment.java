@@ -49,9 +49,9 @@ public class EducationFragment extends Fragment {
 
 
     private void cargarLista() {
-        DBEducation dbEducation = new DBEducation(getActivity());
-        dbEducation.OpenDb();
-        listEducation =  dbEducation.getAllCode();
+        //DBEducation dbEducation = new DBEducation(getActivity());
+        //dbEducation.OpenDb();
+        //listEducation =  dbEducation.getAllCode();
 
     }
     private void mostrarLista() {
