@@ -53,6 +53,12 @@
 
     <!-- Login -->
 
+    <!-- History -->
+    <string name="history_empty">Your history is empty!</string>
+    <string name="history_empty_hint">Add plastics in the SCAN menu</string>
+
+    <!-- History -->
+
 
     <!-- Database -->
     <string name="db_create">DATABASE CREATED</string>

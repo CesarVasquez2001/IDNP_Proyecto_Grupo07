@@ -1,9 +1,11 @@
 package com.example.idnpproyectogrupo07.ui.history;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,10 +36,13 @@ public class HistoryFragment extends Fragment implements HistoryAdapter.ItemClic
     HistoryAdapter historyAdapter;
     RecyclerView recyclerView;
     ArrayList<Plastic> historyItems;
+    TextView tvHistoryEmpty;
+    TextView tvHistoryEmptyHint;
+    ImageView ivHistoryEmpty;
     private Calendar date1;
 
-    private final String pattern = "E, dd MMMM yyyy";
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        private final String pattern = "E, dd MMMM yyyy";
+        private SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
     private String date;
     TextView tv_date;
 
@@ -46,10 +51,22 @@ public class HistoryFragment extends Fragment implements HistoryAdapter.ItemClic
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history, container, false);
         recyclerView = view.findViewById(R.id.recycler_view_history);
+        tvHistoryEmpty = view.findViewById(R.id.tv_history_empty);
+        tvHistoryEmptyHint = view.findViewById(R.id.tv_history_empty_hint);
+        ivHistoryEmpty = view.findViewById(R.id.iv_history_empty);
         historyItems = new ArrayList<>();
 
         loadItems();
-        displayItems();
+
+        if (historyItems.size() > 0) {
+            tvHistoryEmpty.setVisibility(View.INVISIBLE);
+            ivHistoryEmpty.setVisibility(View.INVISIBLE);
+            tvHistoryEmptyHint.setVisibility(View.INVISIBLE);
+
+            displayItems();
+        }
+
+
 
         return view;
     }
@@ -57,7 +74,6 @@ public class HistoryFragment extends Fragment implements HistoryAdapter.ItemClic
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
 
     }
 
