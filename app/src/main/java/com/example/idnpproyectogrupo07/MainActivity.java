@@ -1,16 +1,22 @@
 package com.example.idnpproyectogrupo07;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.idnpproyectogrupo07.database.DBUser;
 import com.example.idnpproyectogrupo07.classes.User;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -20,22 +26,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.idnpproyectogrupo07.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final String SELECTED_ITEM = "arg_selected_item";
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     private NavigationView navigationView;
     private DrawerLayout drawer;
     private static String TAG = "MainActivity";
-
+    private NavController navController;
 
     private Bundle data;
     private DBUser dbUser;
     private User user;
 
     private View header;
-    private   ImageView nav_image;
-    private TextView nav_full_name,nav_email;
+    private ImageView nav_image;
+    private TextView nav_full_name, nav_email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,19 +55,20 @@ public class MainActivity extends AppCompatActivity {
         drawer = binding.drawerLayout;
         navigationView = binding.navView;
 
-
         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_overview, R.id.nav_home, R.id.nav_history, R.id.nav_scan, R.id.nav_education, R.id.nav_signout, R.id.nav_setting)
+                R.id.nav_overview, R.id.nav_home, R.id.nav_history, R.id.nav_scan, R.id.nav_education, R.id.nav_setting)
                 .setOpenableLayout(drawer)
                 .build();
-        navigationView.setNavigationItemSelectedListener(item -> {
-            return true;
-        });
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+
+
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        navigationView.setNavigationItemSelectedListener(this);
+
 
 // User
         //User user= (User) bundle.getSerializable("USER");
@@ -84,12 +92,7 @@ public class MainActivity extends AppCompatActivity {
         nav_image.setImageBitmap(user.getProfile_picture());
 
 
-
-
-
-
     }
-
 
     /*
 Menu contextual
@@ -105,6 +108,7 @@ Menu contextual
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
 
+
         user = dbUser.getUser((int) user.getId_user());
 
         nav_full_name.setText(user.getFullname());
@@ -112,12 +116,14 @@ Menu contextual
         nav_image.setImageBitmap(user.getProfile_picture());
 
         Menu menu = navigationView.getMenu();
-        int id = 0;
+
+
         for (int i = 0; i < menu.size(); i++) {
             MenuItem m = menu.getItem(i);
             m.getActionView().findViewById(R.id.arrow_icon).setBackgroundResource(R.drawable.ic_baseline_chevron_right_24);
             if (m.isChecked() == true) {
                 m.getActionView().findViewById(R.id.arrow_icon).setBackgroundResource(R.drawable.ic_baseline_chevron_left_24);
+
             }
         }
         ImageView exit = binding.navView.findViewById(R.id.exit_header);
@@ -130,30 +136,42 @@ Menu contextual
             }
         });
 
-    /*
-            Toast toast=Toast. makeText(getApplicationContext(),"dad"+id,Toast. LENGTH_SHORT);
-            toast.show();
-
-            if (navigationView.getMenu().getItem(0).isChecked()==true)
-                navigationView.getMenu().getItem(0).getActionView().findViewById(R.id.arrow_icon).setBackgroundResource(R.drawable.ic_baseline_chevron_left_24);
-            if (navigationView.getMenu().getItem(1).isChecked()==true)
-                navigationView.getMenu().getItem(1).getActionView().findViewById(R.id.arrow_icon).setBackgroundResource(R.drawable.ic_baseline_chevron_left_24);
-             if (navigationView.getMenu().getItem(2).isChecked()==true)
-                navigationView.getMenu().getItem(2).getActionView().findViewById(R.id.arrow_icon).setBackgroundResource(R.drawable.ic_baseline_chevron_left_24);
-
-
-            if (navigationView.getMenu().getItem(0).isChecked()==false)
-                navigationView.getMenu().getItem(0).getActionView().findViewById(R.id.arrow_icon).setBackgroundResource(R.drawable.ic_baseline_chevron_right_24);
-             if (navigationView.getMenu().getItem(1).isChecked()==false)
-                navigationView.getMenu().getItem(1).getActionView().findViewById(R.id.arrow_icon).setBackgroundResource(R.drawable.ic_baseline_chevron_right_24);
-             if (navigationView.getMenu().getItem(2).isChecked()==false)
-                navigationView.getMenu().getItem(2).getActionView().findViewById(R.id.arrow_icon).setBackgroundResource(R.drawable.ic_baseline_chevron_right_24);
-    */
-
 
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        boolean handled = NavigationUI.onNavDestinationSelected(item, navController);
+        if (!handled) {
+            switch (item.getItemId()) {
+                case R.id.nav_signout:
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setMessage("Logout");
+                    builder.setCancelable(true);
+                    builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    });
+                    builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                    break;
+            }
+        }
+        drawer.closeDrawer(GravityCompat.START);
+
+        return handled;
+    }
+
 
     /*
     @Override

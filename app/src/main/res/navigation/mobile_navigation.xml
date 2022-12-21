@@ -51,11 +51,7 @@
         android:name="com.example.idnpproyectogrupo07.ui.education.EducationFragment"
         android:label="@string/menu_education"
         tools:layout="@layout/fragment_education" />
-    <fragment
-        android:id="@+id/nav_signout"
-        android:name="com.example.idnpproyectogrupo07.ui.signout.SignoutFragment"
-        android:label="@string/menu_signout"
-        tools:layout="@layout/fragment_signout" />
+
     <fragment
         android:id="@+id/nav_setting"
         android:name="com.example.idnpproyectogrupo07.ui.settings.SettingFragment"
