@@ -165,9 +165,7 @@ public class HomeFragment extends Fragment {
             item.textViewItemDescription.setText(code.getNombre());
 
         }
-
     }
-
 
     @Override
     public void onDestroyView() {

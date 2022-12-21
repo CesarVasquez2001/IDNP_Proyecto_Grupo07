@@ -51,6 +51,7 @@ public class HistoryFragment extends Fragment implements HistoryAdapter.ItemClic
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history, container, false);
         recyclerView = view.findViewById(R.id.recycler_view_history);
+
         tvHistoryEmpty = view.findViewById(R.id.tv_history_empty);
         tvHistoryEmptyHint = view.findViewById(R.id.tv_history_empty_hint);
         ivHistoryEmpty = view.findViewById(R.id.iv_history_empty);
