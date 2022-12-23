@@ -32,10 +32,10 @@ public class ScanCodeAdapter extends RecyclerView.Adapter<ScanCodeAdapter.ViewHo
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.list_codes, parent, false);
-        view.setOnClickListener(this);
-        return new ViewHolder(view);
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = inflater.inflate(R.layout.list_codes, parent, false);
+            view.setOnClickListener(this);
+            return new ViewHolder(view);
     }
 
     public void setOnClickListener(View.OnClickListener listener) {

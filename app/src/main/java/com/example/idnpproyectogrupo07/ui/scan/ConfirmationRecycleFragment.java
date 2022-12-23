@@ -139,6 +139,7 @@ public class ConfirmationRecycleFragment extends Fragment {
                     User user = dbUser.getPreference();
                     plastic.setId_user_column((int) user.getId_user());
                     dbPlastic.insertPlastic(plastic);
+                    Toast.makeText(getContext(), "Correctly saved", Toast.LENGTH_SHORT).show();
                     Navigation.findNavController(view).navigate(R.id.action_confirmationRecycleFragment_to_nav_scan);
                 }
             }

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.idnpproyectogrupo07.R;
 import com.example.idnpproyectogrupo07.classes.EducationItems;
+import com.example.idnpproyectogrupo07.ui.education.EducationInterfaceInfo;
 
 
 import java.util.ArrayList;
@@ -22,12 +23,17 @@ public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.View
     LayoutInflater inflater;
     ArrayList<EducationItems> codes;
 
+
     //listener
     private View.OnClickListener listener;
 
-    public EducationAdapter(Context context, ArrayList<EducationItems> codes) {
+    //Interface Education information
+    private final EducationInterfaceInfo educationInterfaceInfo;
+
+    public EducationAdapter(Context context, ArrayList<EducationItems> codes, EducationInterfaceInfo educationInterfaceInfo) {
         this.inflater = LayoutInflater.from(context);
         this.codes = codes;
+        this.educationInterfaceInfo = educationInterfaceInfo;
 
     }
 
@@ -74,6 +80,20 @@ public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.View
             nombres = itemView.findViewById(R.id.nombre_education);
             placeholder = itemView.findViewById(R.id.referencia_education);
             imagen = itemView.findViewById(R.id.image_education);
+
+            /*itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if(educationInterfaceInfo != null){
+                        int pos = getAdapterPosition();
+                        if(pos !=RecyclerView.NO_POSITION ){
+                            educationInterfaceInfo.onItemClick(pos);
+                        }
+
+                    }
+                }
+            });*/
         }
     }
 }
