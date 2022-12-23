@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.idnpproyectogrupo07.database.DBCode;
+import com.example.idnpproyectogrupo07.database.DBEducation;
 import com.example.idnpproyectogrupo07.database.DBType;
 import com.example.idnpproyectogrupo07.database.DBUser;
 import com.example.idnpproyectogrupo07.classes.User;
@@ -25,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private DBUser dbUser;
     private DBCode dbCode;
     private DBType dbType;
+    private DBEducation dbEducation;
 
 
     private  Button buttonSignIn;
@@ -50,6 +52,10 @@ public class LoginActivity extends AppCompatActivity {
         dbType = new DBType(this);
         dbType.OpenDb();
         Log.d(TAG,"SIZE CODE: " + dbType.getSize() );
+
+        dbEducation = new DBEducation(this);
+        dbEducation.OpenDb();
+        Log.d(TAG,"SIZE CODE: " + dbEducation.getSize() );
 
         //Database
         dbUser = new DBUser(this);

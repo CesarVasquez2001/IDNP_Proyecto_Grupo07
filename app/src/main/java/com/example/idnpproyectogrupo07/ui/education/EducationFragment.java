@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,9 +40,7 @@ public class EducationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_education, container, false);
         recyclerViewEducation = view.findViewById(R.id.recyclerViewEducation);
         listEducation = new ArrayList<>();
-        //cargarlista
         cargarLista();
-        //mostrarlista
         mostrarLista();
         return view;
     }
@@ -49,16 +48,15 @@ public class EducationFragment extends Fragment {
 
 
     private void cargarLista() {
-        //DBEducation dbEducation = new DBEducation(getActivity());
-        //dbEducation.OpenDb();
-        //listEducation =  dbEducation.getAllCode();
+        DBEducation dbEducation = new DBEducation(getActivity());
+        dbEducation.OpenDb();
+         listEducation = dbEducation.getAllCode();
 
     }
     private void mostrarLista() {
         recyclerViewEducation.setLayoutManager(new LinearLayoutManager(getContext()));
         educationAdapter = new EducationAdapter(getContext(),listEducation);
         recyclerViewEducation.setAdapter(educationAdapter);
-
     }
 
 }

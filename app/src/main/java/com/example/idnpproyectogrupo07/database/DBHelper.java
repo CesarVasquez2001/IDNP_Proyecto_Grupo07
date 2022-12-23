@@ -21,13 +21,14 @@ public class DBHelper extends SQLiteOpenHelper implements Serializable {
     protected SQLiteDatabase db;
 
 
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 5;
     private static final String DATABASE_NAME = "smart_city.db";
 
     private static final String TABLE_USER = "t_user";
     private static final String TABLE_PLASTIC = "t_plastic";
     private static final String TABLE_CODE = "t_code";
     private static final String TABLE_TYPE = "t_type";
+    private static final String TABLE_EDUCATION = "t_education";
 
     public DBHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -35,6 +36,12 @@ public class DBHelper extends SQLiteOpenHelper implements Serializable {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+
+        sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_EDUCATION + "(" +
+                "id_education INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "name_education TEXT NOT NULL," +
+                "description_education TEXT NOT NULL," +
+                "image_education BLOB NOT NULL)");
 
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_CODE + "(" +
                 "id_code INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -69,6 +76,7 @@ public class DBHelper extends SQLiteOpenHelper implements Serializable {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_EDUCATION);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_CODE);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_TYPE);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);

@@ -16,7 +16,7 @@ import com.example.idnpproyectogrupo07.classes.ScanCodePlastic;
 
 import java.util.ArrayList;
 
-public class ScanCodeAdapter extends RecyclerView.Adapter<ScanCodeAdapter.ViewHolder> implements View.OnClickListener{
+public class ScanCodeAdapter extends RecyclerView.Adapter<ScanCodeAdapter.ViewHolder> implements View.OnClickListener {
 
     LayoutInflater inflater;
     ArrayList<ScanCodePlastic> codes;
@@ -24,9 +24,10 @@ public class ScanCodeAdapter extends RecyclerView.Adapter<ScanCodeAdapter.ViewHo
     //listener
     private View.OnClickListener listener;
 
-    public ScanCodeAdapter(Context context, ArrayList<ScanCodePlastic> codes){
-        this.inflater=LayoutInflater.from(context);
-        this.codes= codes;
+    public ScanCodeAdapter(Context context, ArrayList<ScanCodePlastic> codes) {
+        this.inflater = LayoutInflater.from(context);
+        this.codes = codes;
+
     }
 
     @NonNull
@@ -37,7 +38,7 @@ public class ScanCodeAdapter extends RecyclerView.Adapter<ScanCodeAdapter.ViewHo
         return new ViewHolder(view);
     }
 
-    public void setOnClickListener(View.OnClickListener listener){
+    public void setOnClickListener(View.OnClickListener listener) {
         this.listener = listener;
     }
 
@@ -58,10 +59,11 @@ public class ScanCodeAdapter extends RecyclerView.Adapter<ScanCodeAdapter.ViewHo
 
     @Override
     public void onClick(View view) {
-        if (listener!=null) listener.onClick(view);
+        if (listener != null) listener.onClick(view);
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
         TextView nombres, placeholder;
         ImageView imagen;
 

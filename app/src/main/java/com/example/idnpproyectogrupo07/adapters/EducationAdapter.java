@@ -21,10 +21,11 @@ public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.View
 
     LayoutInflater inflater;
     ArrayList<EducationItems> codes;
+
     //listener
     private View.OnClickListener listener;
 
-    public EducationAdapter(Context context, ArrayList<EducationItems> codes){
+    public EducationAdapter(Context context, ArrayList<EducationItems> codes) {
         this.inflater = LayoutInflater.from(context);
         this.codes = codes;
 
@@ -36,6 +37,10 @@ public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.View
         View view = inflater.inflate(R.layout.list_education, parent, false);
         view.setOnClickListener(this);
         return new ViewHolder(view);
+    }
+
+    public void setOnClickListener(View.OnClickListener listener) {
+        this.listener = listener;
     }
 
     @Override
@@ -51,19 +56,15 @@ public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.View
 
     @Override
     public int getItemCount() {
-        return 0;
-    }
-
-    public void setOnClickListener(View.OnClickListener listener){
-        this.listener = listener;
+        return codes.size();
     }
 
     @Override
     public void onClick(View v) {
-        if (listener!=null) listener.onClick(v);
+        if (listener != null) listener.onClick(v);
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView nombres, placeholder;
         ImageView imagen;

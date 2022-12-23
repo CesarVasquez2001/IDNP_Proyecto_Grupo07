@@ -17,12 +17,10 @@ import java.util.Collections;
 public class GraficoBarrasVista extends View {
 
 
-
     private ArrayList<String> listTags = new ArrayList<>();
     private ArrayList<Double> listValues = new ArrayList<>();
     private int limiteMaximo;
     private String titulo;
-
 
 
     private String leyenda;
@@ -30,20 +28,27 @@ public class GraficoBarrasVista extends View {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
     public void setLeyenda(String leyenda) {
         this.leyenda = leyenda;
     }
+
     public void setListTags(ArrayList<String> listTags) {
         this.listTags = listTags;
     }
 
-    public static int calcularDecena(int decena){
-        return decena - (decena%10) + 10;
+    public static int calcularDecena(int decena) {
+        return decena - (decena % 10) + 10;
     }
+
     public void setListValues(ArrayList<Double> listValues) {
         this.listValues = listValues;
-        limiteMaximo= calcularDecena(Collections.max(listValues).intValue());
+        if (listValues.size() != 0) {
+            limiteMaximo = calcularDecena(Collections.max(listValues).intValue());
+
+        }
     }
+
     public GraficoBarrasVista(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.limiteMaximo = Integer.MAX_VALUE;
@@ -99,11 +104,11 @@ public class GraficoBarrasVista extends View {
         canvas.drawText(leyenda, 0.44f * ancho,
                 0.94f * alto, pincel2);
 
-        if (listTags.size() != 0 || listValues.size()!=0) {
+        if (listTags.size() != 0 || listValues.size() != 0) {
             //****************************************************
             //creando las barras y etiquetas
-            Log.d("VIEW",listTags.size()+"");
-            Log.d("VIEW",listValues.size()+"");
+            Log.d("VIEW", listTags.size() + "");
+            Log.d("VIEW", listValues.size() + "");
 
             float parts = (0.70f * ancho) / ((float) listTags.size() * 2 + 1f);
 
