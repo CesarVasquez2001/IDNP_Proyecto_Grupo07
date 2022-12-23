@@ -1,4 +1,4 @@
-package com.example.idnpproyectogrupo07.ui.overview.Graphs;
+package com.example.idnpproyectogrupo07.ui.overview.Graphs.Circular;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -18,18 +18,30 @@ import java.util.ArrayList;
 public class GraficoCircularVista extends View {
 
 
+
     private ArrayList<String> listaPais = new ArrayList<>();
     private ArrayList<Double> listaTNatalidad = new ArrayList<>();
     private ArrayList<Color> listaColores = new ArrayList();
     private int ancho;
     private int alto;
     private float radio;
+    private String titulo;
 
+    public void setListaPais(ArrayList<String> listaPais) {
+        this.listaPais = listaPais;
+    }
+
+    public void setListaTNatalidad(ArrayList<Double> listaTNatalidad) {
+        this.listaTNatalidad = listaTNatalidad;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
     public GraficoCircularVista(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.radio = 0.3f;
     }
-
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -41,7 +53,7 @@ public class GraficoCircularVista extends View {
         this.alto = getHeight();
 
         //pintar fondo
-        canvas.drawRGB(240, 240, 240);
+        canvas.drawRGB(255, 255, 255);
         //pincel negro
         Paint pincelNegro = new Paint();
         pincelNegro.setColor(Color.BLACK);
@@ -74,7 +86,9 @@ public class GraficoCircularVista extends View {
 
         for(int i = 0; i < listaPais.size(); i++){
             sweepAngle = listaTNatalidad.get(i).floatValue()*360.0f/100.0f;
-            colorPais.setColor(listaColores.get(i).toArgb());
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                colorPais.setColor(listaColores.get(i).toArgb());
+            }
             //pintando grafico
             canvas.drawArc(rectangulo,
                     sumaAngulos, sweepAngle,true, colorPais);
@@ -95,8 +109,8 @@ public class GraficoCircularVista extends View {
         //solo texto
         pincelNegro.setTextSize(40);
 
-        canvas.drawText("Tasa de Natalidad", 0.25f*ancho,
-                0.1f*alto, pincelNegro);
+        canvas.drawText(titulo, 0.45f*ancho,
+                0.15f*alto, pincelNegro);
 
         //cambiando pincel
         pincelNegro.setTextSize(22);
@@ -138,42 +152,9 @@ public class GraficoCircularVista extends View {
         return xy;
     }
 
-    public void ingresandoDatos(){
-        //datos del excel
-        this.listaPais.add("Argentina");
-        this.listaTNatalidad.add(5.0);
-        this.listaPais.add("Bolivia");
-        this.listaTNatalidad.add(12.0);
-        this.listaPais.add("Brasil");
-        this.listaTNatalidad.add(8.0);
-        this.listaPais.add("Canada");
-        this.listaTNatalidad.add(4.0);
-        this.listaPais.add("Chile");
-        this.listaTNatalidad.add(6.0);
-        this.listaPais.add("Colombia");
-        this.listaTNatalidad.add(7.0);
-        this.listaPais.add("Ecuador");
-        this.listaTNatalidad.add(9.0);
-        this.listaPais.add("Guyana");
-        this.listaTNatalidad.add(7.0);
-        this.listaPais.add("Mexico");
-        this.listaTNatalidad.add(8.0);
-        this.listaPais.add("Paraguay");
-        this.listaTNatalidad.add(9.0);
-        this.listaPais.add("Peru");
-        this.listaTNatalidad.add(9.0);
-        this.listaPais.add("USA");
-        this.listaTNatalidad.add(4.0);
-        this.listaPais.add("Uruguay");
-        this.listaTNatalidad.add(5.0);
-        this.listaPais.add("Venezuela");
-        this.listaTNatalidad.add(7.0);
-        this.listaPais.add("ascasc");
-        this.listaTNatalidad.add(7.0);
-        colorDePaises();
-    }
 
-    private void colorDePaises() {
+
+    public void colorDePaises() {
         int r = 240;
         int g = 240;
         int b = 240;

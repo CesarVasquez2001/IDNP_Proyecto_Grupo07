@@ -2,7 +2,7 @@ package com.example.idnpproyectogrupo07.classes;
 
 import android.graphics.Bitmap;
 
-public class Plastic {
+public class  Plastic {
 
     int id_plastic;
     String date_plastic;

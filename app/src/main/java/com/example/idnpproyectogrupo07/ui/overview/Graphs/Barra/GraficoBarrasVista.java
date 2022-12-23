@@ -1,4 +1,4 @@
-package com.example.idnpproyectogrupo07.ui.overview.Graphs;
+package com.example.idnpproyectogrupo07.ui.overview.Graphs.Barra;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -71,7 +71,7 @@ public class GraficoBarrasVista extends View {
         //solo texto
         pincel2.setTextSize(40);
 
-        canvas.drawText(titulo, 0.25f * ancho,
+        canvas.drawText(titulo, 0.15f * ancho,
                 0.1f * alto, pincel2);
 
         //solo texto

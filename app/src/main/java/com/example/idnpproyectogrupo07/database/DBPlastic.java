@@ -3,7 +3,6 @@ package com.example.idnpproyectogrupo07.database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.Toast;
@@ -11,8 +10,6 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.idnpproyectogrupo07.classes.Plastic;
-import com.example.idnpproyectogrupo07.classes.ScanCodePlastic;
-import com.example.idnpproyectogrupo07.classes.User;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -134,7 +131,7 @@ public class DBPlastic extends DBHelper{
         return size;
     }
 
-    public int getSizeCodeUser(int id_user,int id_code) {
+    public int getCountCodeUser(int id_user, int id_code) {
         int size = -1;
         try {
             Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM t_plastic WHERE id_user_column=? AND id_code_column=?", new String[]{String.valueOf(id_user),String.valueOf(id_code)});
@@ -149,4 +146,53 @@ public class DBPlastic extends DBHelper{
         }
         return size;
     }
+
+    public int getSumtCodeUser(int id_user, int id_code) {
+        int amount = -1;
+        try {
+            Cursor cursor = db.rawQuery("SELECT SUM(amount_plastic) FROM t_plastic WHERE id_user_column=? AND id_code_column=?", new String[]{String.valueOf(id_user),String.valueOf(id_code)});
+            if (cursor.moveToFirst()) {
+                do {
+                    amount = cursor.getInt(0);
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        } catch (Exception e) {
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        return amount;
+    }
+
+    public int getCountTypeUser(int id_user, int id_type) {
+        int size = -1;
+        try {
+            Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM t_plastic WHERE id_user_column=? AND id_type_column=?", new String[]{String.valueOf(id_user),String.valueOf(id_type)});
+            if (cursor.moveToFirst()) {
+                do {
+                    size = cursor.getInt(0);
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        } catch (Exception e) {
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        return size;
+    }
+
+    public int getSumtTypeUser(int id_user, int id_type) {
+        int amount = -1;
+        try {
+            Cursor cursor = db.rawQuery("SELECT SUM(amount_plastic) FROM t_plastic WHERE id_user_column=? AND id_type_column=?", new String[]{String.valueOf(id_user),String.valueOf(id_type)});
+            if (cursor.moveToFirst()) {
+                do {
+                    amount = cursor.getInt(0);
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        } catch (Exception e) {
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        return amount;
+    }
+
 }
